@@ -1,0 +1,32 @@
+{
+  "id": "./",
+  "name": "Speed Factory Moto",
+  "short_name": "Speed Factory",
+  "description": "Το ψηφιακό προφίλ της Speed Factory Moto του Χρήστου Νικολακόπουλου.",
+  "lang": "el-GR",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#07080a",
+  "theme_color": "#07080a",
+  "categories": [
+    "business",
+    "automotive"
+  ],
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
