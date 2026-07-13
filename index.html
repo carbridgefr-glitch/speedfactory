@@ -8,17 +8,17 @@
   <meta name="description" content="Speed Factory Moto στην Οβριά Πατρών. Service, επισκευές, βελτιώσεις και εξοπλισμός μοτοσυκλέτας.">
   <meta name="theme-color" content="#08090b">
 
-  <link rel="manifest" href="./manifest.webmanifest">
-  <link rel="apple-touch-icon" href="./apple-touch-icon.png">
-  <link rel="icon" href="./icon-192.png" type="image/png">
+  <link rel="manifest" href="./manifest.webmanifest?v=10">
+  <link rel="apple-touch-icon" href="./icon-512.png">
+  <link rel="icon" href="./icon-192.webp" type="image/webp">
 
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Speed Factory">
 
-  <link rel="preload" as="image" href="./cover.webp" fetchpriority="high">
-  <link rel="preload" as="image" href="./logo.webp" fetchpriority="high">
+  <link rel="preload" as="image" href="./cover%20no%20backround.png" fetchpriority="high">
+  <link rel="preload" as="image" href="./logo%20git%20hub.png" fetchpriority="high">
 
   <meta property="og:title" content="Speed Factory Moto">
   <meta property="og:description" content="Το ψηφιακό προφίλ της Speed Factory Moto του Χρήστου Νικολακόπουλου.">
@@ -898,14 +898,13 @@
     <header class="hero">
       <img
         class="hero-image"
-        src="./cover.webp"
+        src="./cover%20no%20backround.png"
         alt="Speed Factory Moto"
         width="1200"
         height="700"
         loading="eager"
         decoding="async"
         fetchpriority="high"
-        onerror="this.onerror=null;this.src='./cover%20no%20backround.png';"
       >
       <div class="hero-overlay"></div>
 
@@ -931,14 +930,13 @@
       <div class="logo-ring">
         <div class="logo-inner">
           <img
-            src="./logo.webp"
+            src="./logo%20git%20hub.png"
             alt="Λογότυπο Speed Factory Moto"
             width="512"
             height="512"
             loading="eager"
             decoding="async"
             fetchpriority="high"
-            onerror="this.onerror=null;this.src='./logo%20git%20hub.png';"
           >
         </div>
       </div>
@@ -1156,7 +1154,7 @@
         <path d="m7 10 5 5 5-5"></path>
         <path d="M5 21h14"></path>
       </svg>
-      Αποθήκευση Speed Factory στο κινητό
+      Εγκατάσταση προφίλ στο κινητό μου
     </button>
   </div>
 
@@ -1214,14 +1212,14 @@
     <div class="modal-card">
       <div class="modal-header">
         <div>
-          <h2 id="androidInstallTitle">Εγκατάσταση Speed Factory</h2>
-          <p id="androidInstallText">Πατήστε «Εγκατάσταση τώρα» για να προστεθεί το Speed Factory στην αρχική οθόνη.</p>
+          <h2 id="androidInstallTitle">Εγκατάσταση προφίλ στο κινητό μου</h2>
+          <p id="androidInstallText">Πατήστε το παρακάτω κουμπί για να προστεθεί το προφίλ της Speed Factory στην αρχική οθόνη.</p>
         </div>
         <button class="close-modal" type="button" aria-label="Κλείσιμο" onclick="closeModal('androidInstallModal')">×</button>
       </div>
 
       <div class="choice-grid">
-        <button class="choice-button install" id="androidInstallButton" type="button" onclick="requestNativeInstall()">Εγκατάσταση τώρα</button>
+        <button class="choice-button install" id="androidInstallButton" type="button" onclick="requestNativeInstall()">Εγκατάσταση προφίλ στο κινητό μου</button>
         <button class="choice-button secondary" type="button" onclick="downloadVCard()">Αποθήκευση και στις επαφές</button>
       </div>
 
@@ -1339,6 +1337,11 @@
       }
 
       if (isAndroid()) {
+        if (deferredInstallPrompt) {
+          requestNativeInstall();
+          return;
+        }
+
         openModal("androidInstallModal");
         refreshAndroidInstallUI();
         return;
@@ -1360,23 +1363,22 @@
       const fallbackSteps = document.getElementById("androidFallbackSteps");
       const text = document.getElementById("androidInstallText");
 
+      installButton.textContent = "Εγκατάσταση προφίλ στο κινητό μου";
+      installButton.disabled = false;
+
       if (deferredInstallPrompt) {
-        installButton.textContent = "Εγκατάσταση τώρα";
-        installButton.disabled = false;
         fallbackSteps.hidden = true;
-        text.textContent = "Πατήστε «Εγκατάσταση τώρα» για να εμφανιστεί το κανονικό πλαίσιο εγκατάστασης του κινητού.";
+        text.textContent = "Πατήστε το κουμπί για να εμφανιστεί το κανονικό πλαίσιο εγκατάστασης του Chrome.";
       } else {
-        installButton.textContent = "Έλεγχος εγκατάστασης";
-        installButton.disabled = false;
         fallbackSteps.hidden = false;
-        text.textContent = "Αν δεν εμφανιστεί αμέσως το πλαίσιο εγκατάστασης, ανοίξτε τη σελίδα στο Chrome και ακολουθήστε τα παρακάτω βήματα.";
+        text.textContent = "Ανοίξτε τη σελίδα στο Google Chrome και χρησιμοποιήστε την επιλογή εγκατάστασης από το μενού, όπως φαίνεται παρακάτω.";
       }
     }
 
     async function requestNativeInstall() {
       if (!deferredInstallPrompt) {
         refreshAndroidInstallUI();
-        showToast("Το Chrome δεν έδωσε ακόμη το πλαίσιο εγκατάστασης.");
+        showToast("Χρησιμοποιήστε τις τρεις τελείες του Chrome και πατήστε «Εγκατάσταση εφαρμογής».");
         return;
       }
 
@@ -1480,7 +1482,7 @@
 
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./service-worker.js").catch((error) => {
+        navigator.serviceWorker.register("./service-worker.js?v=10").catch((error) => {
           console.error("Service worker error:", error);
         });
       });
