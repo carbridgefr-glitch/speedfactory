@@ -1,113 +1,92 @@
-const CACHE_NAME = "speed-factory-v1";
+const CACHE_NAME = "speedfactory-v5";
 
-const APP_FILES = [
+const CORE_FILES = [
   "./",
   "./index.html",
   "./manifest.webmanifest",
-  "./cover%20no%20backround.png",
-  "./logo%20git%20hub.png",
+  "./speed-factory.vcf",
+  "./cover.webp",
+  "./logo.webp",
   "./icon-192.png",
-  "./icon-512.png"
+  "./icon-512.png",
+  "./icon-maskable-512.png",
+  "./apple-touch-icon.png"
 ];
 
-/*
-  Αποθήκευση των βασικών αρχείων της σελίδας
-  ώστε να μπορεί να ανοίγει και από το εικονίδιο
-  του κινητού.
-*/
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches
       .open(CACHE_NAME)
-      .then((cache) => cache.addAll(APP_FILES))
+      .then((cache) => Promise.allSettled(
+        CORE_FILES.map((file) => cache.add(file))
+      ))
       .then(() => self.skipWaiting())
   );
 });
 
-/*
-  Διαγραφή παλαιότερων εκδόσεων της cache.
-*/
 self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches
       .keys()
-      .then((cacheNames) => {
-        return Promise.all(
-          cacheNames
-            .filter((cacheName) => cacheName !== CACHE_NAME)
-            .map((cacheName) => caches.delete(cacheName))
-        );
-      })
+      .then((names) => Promise.all(
+        names
+          .filter((name) => name !== CACHE_NAME)
+          .map((name) => caches.delete(name))
+      ))
       .then(() => self.clients.claim())
   );
 });
 
-/*
-  Για τις σελίδες χρησιμοποιούμε πρώτα το δίκτυο,
-  ώστε να εμφανίζονται γρήγορα οι νέες αλλαγές.
-
-  Αν δεν υπάρχει σύνδεση, ανοίγει η αποθηκευμένη έκδοση.
-*/
 self.addEventListener("fetch", (event) => {
-  if (event.request.method !== "GET") {
-    return;
-  }
+  if (event.request.method !== "GET") return;
 
   const requestUrl = new URL(event.request.url);
 
-  /*
-    Δεν αποθηκεύουμε εξωτερικά links,
-    όπως Google, Instagram και Facebook.
-  */
-  if (requestUrl.origin !== self.location.origin) {
-    return;
-  }
+  // Δεν αποθηκεύουμε Google, Facebook, Instagram ή άλλα εξωτερικά links.
+  if (requestUrl.origin !== self.location.origin) return;
 
+  // Για την HTML ζητάμε πρώτα τη νεότερη έκδοση από το δίκτυο.
   if (event.request.mode === "navigate") {
     event.respondWith(
       fetch(event.request)
         .then((response) => {
-          const responseCopy = response.clone();
+          const copy = response.clone();
 
           caches.open(CACHE_NAME).then((cache) => {
-            cache.put(event.request, responseCopy);
+            cache.put("./index.html", copy);
           });
 
           return response;
         })
-        .catch(() => {
-          return caches.match(event.request).then((cachedResponse) => {
-            return cachedResponse || caches.match("./index.html");
-          });
-        })
+        .catch(() => caches.match("./index.html"))
     );
 
     return;
   }
 
+  // Για εικόνες και στατικά αρχεία χρησιμοποιούμε την cache
+  // και ανανεώνουμε το αρχείο στο παρασκήνιο.
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
-      if (cachedResponse) {
-        return cachedResponse;
-      }
+      const networkResponse = fetch(event.request)
+        .then((response) => {
+          if (
+            response &&
+            response.status === 200 &&
+            response.type === "basic"
+          ) {
+            const copy = response.clone();
 
-      return fetch(event.request).then((response) => {
-        if (
-          !response ||
-          response.status !== 200 ||
-          response.type !== "basic"
-        ) {
+            caches.open(CACHE_NAME).then((cache) => {
+              cache.put(event.request, copy);
+            });
+          }
+
           return response;
-        }
+        })
+        .catch(() => cachedResponse);
 
-        const responseCopy = response.clone();
-
-        caches.open(CACHE_NAME).then((cache) => {
-          cache.put(event.request, responseCopy);
-        });
-
-        return response;
-      });
+      return cachedResponse || networkResponse;
     })
   );
 });
