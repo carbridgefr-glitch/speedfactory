@@ -2,70 +2,40 @@
 <html lang="el">
 <head>
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1, viewport-fit=cover"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
   <title>Speed Factory Moto | Χρήστος Νικολακόπουλος</title>
-
-  <meta
-    name="description"
-    content="Speed Factory Moto στην Οβριά Πατρών. Service, επισκευές, βελτιώσεις, κράνη, στολές, εξαρτήματα και αξεσουάρ μοτοσυκλέτας."
-  >
-
+  <meta name="description" content="Speed Factory Moto στην Οβριά Πατρών. Service, επισκευές, βελτιώσεις και εξοπλισμός μοτοσυκλέτας.">
   <meta name="theme-color" content="#08090b">
 
-  <!-- PWA -->
   <link rel="manifest" href="./manifest.webmanifest">
-  <link rel="apple-touch-icon" href="./icon-192.png">
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png">
+  <link rel="icon" href="./icon-192.png" type="image/png">
 
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Speed Factory">
 
-  <meta
-    name="apple-mobile-web-app-status-bar-style"
-    content="black-translucent"
-  >
+  <link rel="preload" as="image" href="./cover.webp" fetchpriority="high">
+  <link rel="preload" as="image" href="./logo.webp" fetchpriority="high">
 
-  <meta
-    name="apple-mobile-web-app-title"
-    content="Speed Factory"
-  >
-
-  <!-- Κοινοποίηση -->
   <meta property="og:title" content="Speed Factory Moto">
-
-  <meta
-    property="og:description"
-    content="Το ψηφιακό προφίλ της Speed Factory Moto του Χρήστου Νικολακόπουλου."
-  >
-
-  <meta
-    property="og:image"
-    content="https://carbridgefr-glitch.github.io/speed-factory/cover%20no%20backround.png"
-  >
-
-  <meta
-    property="og:url"
-    content="https://carbridgefr-glitch.github.io/speed-factory/"
-  >
-
+  <meta property="og:description" content="Το ψηφιακό προφίλ της Speed Factory Moto του Χρήστου Νικολακόπουλου.">
+  <meta property="og:image" content="https://carbridgefr-glitch.github.io/speedfactory/cover%20no%20backround.png">
+  <meta property="og:url" content="https://carbridgefr-glitch.github.io/speedfactory/">
   <meta property="og:type" content="website">
 
   <style>
     :root {
-      --black: #07080a;
-      --black-soft: #101217;
-      --card: rgba(20, 22, 27, 0.97);
-      --red: #ed1c24;
-      --red-dark: #9c080d;
-      --red-soft: rgba(237, 28, 36, 0.14);
-      --white: #ffffff;
-      --text: #f6f7f9;
+      --bg: #07080a;
+      --panel: rgba(21, 23, 29, 0.97);
+      --panel-2: rgba(31, 34, 41, 0.96);
+      --text: #f7f8fa;
       --muted: #a8adb7;
-      --line: rgba(255, 255, 255, 0.09);
+      --line: rgba(255, 255, 255, 0.10);
+      --red: #ed1c24;
+      --red-dark: #98070c;
       --green: #16b967;
       --green-dark: #087b43;
       --yellow: #f2bd2e;
@@ -86,50 +56,13 @@
     body {
       margin: 0;
       min-height: 100vh;
-      padding-bottom: 106px;
+      padding-bottom: 104px;
       color: var(--text);
-      font-family:
-        Inter,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        Arial,
-        sans-serif;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
       background:
-        radial-gradient(
-          circle at 12% 2%,
-          rgba(237, 28, 36, 0.22),
-          transparent 28%
-        ),
-        radial-gradient(
-          circle at 92% 35%,
-          rgba(255, 255, 255, 0.06),
-          transparent 26%
-        ),
-        linear-gradient(
-          180deg,
-          #050608 0%,
-          #111319 48%,
-          #060709 100%
-        );
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none;
-      opacity: 0.11;
-      background-image:
-        linear-gradient(
-          135deg,
-          transparent 0 48%,
-          rgba(255, 255, 255, 0.1) 49% 51%,
-          transparent 52% 100%
-        );
-      background-size: 35px 35px;
+        radial-gradient(circle at 12% 2%, rgba(237, 28, 36, 0.22), transparent 28%),
+        radial-gradient(circle at 92% 35%, rgba(255, 255, 255, 0.06), transparent 26%),
+        linear-gradient(180deg, #050608 0%, #111319 48%, #060709 100%);
     }
 
     a {
@@ -152,58 +85,29 @@
       overflow: hidden;
     }
 
-    /* COVER */
-
     .hero {
       position: relative;
-      min-height: 285px;
+      min-height: 290px;
       overflow: hidden;
-      background:
-        linear-gradient(
-          180deg,
-          rgba(3, 4, 6, 0.08) 0%,
-          rgba(3, 4, 6, 0.3) 52%,
-          #08090b 100%
-        ),
-        radial-gradient(
-          circle at 50% 20%,
-          rgba(237, 28, 36, 0.18),
-          transparent 44%
-        ),
-        url("cover%20no%20backround.png") center 32% / cover no-repeat,
-        #08090b;
+      background: #08090b;
     }
 
-    .hero::before {
-      content: "";
+    .hero-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 32%;
+      transform: translateZ(0);
+    }
+
+    .hero-overlay {
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(
-          120deg,
-          rgba(237, 28, 36, 0.24),
-          transparent 43%
-        );
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      left: -15%;
-      right: -15%;
-      bottom: 24px;
-      height: 7px;
-      transform: rotate(-2.5deg);
-      opacity: 0.75;
-      background:
-        linear-gradient(
-          90deg,
-          transparent,
-          var(--red),
-          #ffffff,
-          var(--red),
-          transparent
-        );
+        linear-gradient(180deg, rgba(3, 4, 6, 0.08), rgba(3, 4, 6, 0.34) 55%, #08090b 100%),
+        linear-gradient(120deg, rgba(237, 28, 36, 0.22), transparent 44%);
     }
 
     .hero-top {
@@ -225,11 +129,11 @@
       padding: 8px 13px;
       border: 1px solid rgba(255, 255, 255, 0.16);
       border-radius: 999px;
-      color: #ffffff;
+      color: #fff;
       font-size: 0.72rem;
       font-weight: 900;
       letter-spacing: 0.09em;
-      background: rgba(5, 6, 8, 0.7);
+      background: rgba(5, 6, 8, 0.70);
       backdrop-filter: blur(12px);
     }
 
@@ -241,40 +145,33 @@
       box-shadow: 0 0 13px var(--red);
     }
 
-    .share-top {
+    .icon-button {
       width: 43px;
       height: 43px;
       display: grid;
       place-items: center;
       border: 1px solid rgba(255, 255, 255, 0.17);
       border-radius: 50%;
-      color: #ffffff;
+      color: #fff;
       background: rgba(5, 6, 8, 0.73);
       backdrop-filter: blur(12px);
       cursor: pointer;
     }
 
-    .share-top svg {
+    .icon-button svg {
       width: 21px;
       height: 21px;
     }
 
-    /* PROFILE */
-
     .profile-card {
       position: relative;
       z-index: 4;
-      margin: -72px 15px 0;
+      margin: -73px 15px 0;
       padding: 0 18px 23px;
       border: 1px solid var(--line);
       border-radius: 30px;
       text-align: center;
-      background:
-        linear-gradient(
-          145deg,
-          rgba(30, 33, 40, 0.98),
-          rgba(9, 10, 13, 0.99)
-        );
+      background: linear-gradient(145deg, rgba(30, 33, 40, 0.98), rgba(9, 10, 13, 0.99));
       box-shadow: var(--shadow);
     }
 
@@ -284,18 +181,8 @@
       margin: -66px auto 15px;
       padding: 5px;
       border-radius: 50%;
-      background:
-        linear-gradient(
-          135deg,
-          #ffffff,
-          #777b84 25%,
-          #ffffff 48%,
-          #575a60 74%,
-          #ffffff
-        );
-      box-shadow:
-        0 15px 36px rgba(0, 0, 0, 0.5),
-        0 0 0 6px rgba(237, 28, 36, 0.13);
+      background: linear-gradient(135deg, #fff, #747880 25%, #fff 48%, #575a60 74%, #fff);
+      box-shadow: 0 15px 36px rgba(0, 0, 0, 0.5), 0 0 0 6px rgba(237, 28, 36, 0.13);
     }
 
     .logo-inner {
@@ -305,12 +192,7 @@
       display: grid;
       place-items: center;
       border-radius: 50%;
-      background:
-        radial-gradient(
-          circle at 50% 25%,
-          #272a31,
-          #050608 74%
-        );
+      background: radial-gradient(circle at 50% 25%, #272a31, #050608 74%);
     }
 
     .logo-inner img {
@@ -335,7 +217,6 @@
 
     .owner {
       margin: 10px 0 0;
-      color: #ffffff;
       font-size: 1rem;
       font-weight: 800;
     }
@@ -381,15 +262,10 @@
       padding: 11px;
       border: 1px solid var(--line);
       border-radius: 17px;
-      color: #ffffff;
+      color: #fff;
       font-size: 0.84rem;
       font-weight: 900;
-      background:
-        linear-gradient(
-          145deg,
-          rgba(255, 255, 255, 0.09),
-          rgba(255, 255, 255, 0.025)
-        );
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.025));
       cursor: pointer;
     }
 
@@ -397,8 +273,6 @@
       width: 19px;
       height: 19px;
     }
-
-    /* SECTIONS */
 
     main {
       display: grid;
@@ -410,13 +284,10 @@
       padding: 21px 17px;
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      background:
-        linear-gradient(
-          145deg,
-          rgba(27, 30, 36, 0.97),
-          rgba(10, 11, 14, 0.98)
-        );
+      background: linear-gradient(145deg, rgba(27, 30, 36, 0.97), rgba(10, 11, 14, 0.98));
       box-shadow: 0 13px 38px rgba(0, 0, 0, 0.25);
+      content-visibility: auto;
+      contain-intrinsic-size: 350px;
     }
 
     .section-heading {
@@ -429,7 +300,6 @@
     .heading-mark {
       width: 5px;
       height: 27px;
-      flex: 0 0 auto;
       border-radius: 99px;
       background: var(--red);
       box-shadow: 0 0 15px rgba(237, 28, 36, 0.55);
@@ -439,7 +309,6 @@
       margin: 0;
       font-size: 1.13rem;
       font-weight: 950;
-      letter-spacing: -0.02em;
     }
 
     .section-subtitle {
@@ -448,8 +317,6 @@
       font-size: 0.84rem;
       line-height: 1.55;
     }
-
-    /* CONTACT */
 
     .quick-actions {
       display: grid;
@@ -469,34 +336,13 @@
       padding: 16px;
       border: 1px solid rgba(255, 255, 255, 0.11);
       border-radius: 20px;
-      color: #ffffff;
+      color: #fff;
       font-weight: 900;
-      background:
-        linear-gradient(
-          145deg,
-          rgba(255, 255, 255, 0.1),
-          rgba(255, 255, 255, 0.025)
-        );
-    }
-
-    .quick-button::after {
-      content: "";
-      position: absolute;
-      right: -43px;
-      bottom: -49px;
-      width: 95px;
-      height: 95px;
-      border-radius: 50%;
-      background: rgba(237, 28, 36, 0.15);
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.10), rgba(255, 255, 255, 0.025));
     }
 
     .quick-button.main {
-      background:
-        linear-gradient(
-          145deg,
-          var(--red),
-          var(--red-dark)
-        );
+      background: linear-gradient(145deg, var(--red), var(--red-dark));
       box-shadow: 0 12px 30px rgba(237, 28, 36, 0.23);
     }
 
@@ -517,16 +363,10 @@
     .quick-button small {
       display: block;
       margin-top: 4px;
-      color: rgba(255, 255, 255, 0.63);
+      color: rgba(255, 255, 255, 0.66);
       font-size: 0.71rem;
       font-weight: 650;
     }
-
-    .quick-button.main small {
-      color: rgba(255, 255, 255, 0.79);
-    }
-
-    /* SOCIAL */
 
     .social-list {
       display: grid;
@@ -541,12 +381,7 @@
       padding: 11px 14px;
       border: 1px solid var(--line);
       border-radius: 18px;
-      background:
-        linear-gradient(
-          145deg,
-          rgba(255, 255, 255, 0.08),
-          rgba(255, 255, 255, 0.023)
-        );
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.023));
     }
 
     .social-icon {
@@ -556,7 +391,6 @@
       display: grid;
       place-items: center;
       border-radius: 13px;
-      color: #ffffff;
       background: #090a0d;
     }
 
@@ -570,13 +404,12 @@
       flex: 1;
     }
 
-    .social-content strong {
+    .social-content strong,
+    .social-content span {
       display: block;
-      font-size: 0.94rem;
     }
 
     .social-content span {
-      display: block;
       overflow: hidden;
       margin-top: 3px;
       color: var(--muted);
@@ -589,8 +422,6 @@
       color: var(--red);
       font-size: 1.4rem;
     }
-
-    /* SERVICES */
 
     .about-text {
       margin: 0;
@@ -615,19 +446,16 @@
       border: 1px solid var(--line);
       border-radius: 16px;
       color: #e9ebef;
-      font-size: 0.8rem;
+      font-size: 0.80rem;
       font-weight: 780;
       background: rgba(255, 255, 255, 0.035);
     }
 
-    .service-item svg {
-      width: 21px;
-      height: 21px;
-      flex: 0 0 auto;
+    .service-item span {
       color: var(--red);
+      font-size: 1.1rem;
+      font-weight: 950;
     }
-
-    /* PRODUCTS */
 
     .categories {
       display: grid;
@@ -638,61 +466,31 @@
       overflow: hidden;
       border: 1px solid var(--line);
       border-radius: 21px;
-      background:
-        linear-gradient(
-          145deg,
-          rgba(255, 255, 255, 0.065),
-          rgba(255, 255, 255, 0.018)
-        );
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.065), rgba(255, 255, 255, 0.018));
     }
 
     .category-media {
-      position: relative;
-      height: 150px;
+      height: 145px;
       display: grid;
       place-items: center;
-      overflow: hidden;
       background:
-        radial-gradient(
-          circle at 28% 18%,
-          rgba(237, 28, 36, 0.24),
-          transparent 37%
-        ),
-        repeating-linear-gradient(
-          135deg,
-          #17191e 0 14px,
-          #111318 14px 28px
-        );
-    }
-
-    .category-media::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(
-          180deg,
-          transparent,
-          rgba(0, 0, 0, 0.35)
-        );
+        radial-gradient(circle at 28% 18%, rgba(237, 28, 36, 0.24), transparent 37%),
+        repeating-linear-gradient(135deg, #17191e 0 14px, #111318 14px 28px);
     }
 
     .category-placeholder {
-      position: relative;
-      z-index: 2;
       display: grid;
       place-items: center;
-      gap: 9px;
+      gap: 8px;
       color: rgba(255, 255, 255, 0.63);
       font-size: 0.76rem;
       font-weight: 800;
       text-align: center;
     }
 
-    .category-placeholder svg {
-      width: 40px;
-      height: 40px;
+    .category-placeholder strong {
       color: var(--red);
+      font-size: 2rem;
     }
 
     .category-info {
@@ -716,17 +514,14 @@
     }
 
     .soon-badge {
-      flex: 0 0 auto;
       padding: 6px 9px;
       border: 1px solid rgba(237, 28, 36, 0.26);
       border-radius: 999px;
       color: #ff9094;
       font-size: 0.66rem;
       font-weight: 950;
-      background: var(--red-soft);
+      background: rgba(237, 28, 36, 0.14);
     }
-
-    /* HOURS */
 
     .hours-table {
       width: 100%;
@@ -743,7 +538,6 @@
     }
 
     .hours-table td:last-child {
-      color: #ffffff;
       font-weight: 850;
       text-align: right;
     }
@@ -751,8 +545,6 @@
     .hours-table .closed {
       color: #ff7d83;
     }
-
-    /* RATING */
 
     .rating-section {
       text-align: center;
@@ -786,12 +578,9 @@
       padding: 12px 6px;
       border: 1px solid var(--line);
       border-radius: 19px;
-      color: #ffffff;
+      color: #fff;
       background: rgba(255, 255, 255, 0.035);
       cursor: pointer;
-      transition:
-        transform 0.18s ease,
-        border-color 0.18s ease;
     }
 
     .face-button:active {
@@ -808,40 +597,27 @@
       font-weight: 900;
     }
 
-    .face-happy {
-      color: var(--green);
-    }
-
-    .face-neutral {
-      color: var(--yellow);
-    }
-
-    .face-sad {
-      color: var(--danger);
-    }
-
-    /* FOOTER */
+    .face-happy { color: var(--green); }
+    .face-neutral { color: var(--yellow); }
+    .face-sad { color: var(--danger); }
 
     footer {
       padding: 6px 20px 31px;
       color: #747983;
-      font-size: 0.7rem;
+      font-size: 0.70rem;
       line-height: 1.75;
       text-align: center;
     }
 
-    footer strong {
+    footer strong,
+    footer a {
       color: #aeb2ba;
-      font-weight: 800;
     }
 
     footer a {
-      color: #aeb2ba;
       text-decoration: underline;
       text-underline-offset: 3px;
     }
-
-    /* STICKY INSTALL */
 
     .sticky-save {
       position: fixed;
@@ -860,20 +636,13 @@
       justify-content: center;
       gap: 11px;
       padding: 13px 17px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.20);
       border-radius: 20px;
-      color: #ffffff;
+      color: #fff;
       font-size: 0.94rem;
       font-weight: 950;
-      background:
-        linear-gradient(
-          135deg,
-          var(--green),
-          var(--green-dark)
-        );
-      box-shadow:
-        0 16px 42px rgba(0, 0, 0, 0.56),
-        0 8px 28px rgba(22, 185, 103, 0.25);
+      background: linear-gradient(135deg, var(--green), var(--green-dark));
+      box-shadow: 0 16px 42px rgba(0, 0, 0, 0.56), 0 8px 28px rgba(22, 185, 103, 0.25);
       cursor: pointer;
     }
 
@@ -881,8 +650,6 @@
       width: 23px;
       height: 23px;
     }
-
-    /* MODALS */
 
     .modal {
       position: fixed;
@@ -892,7 +659,7 @@
       align-items: flex-end;
       justify-content: center;
       padding: 18px;
-      background: rgba(0, 0, 0, 0.8);
+      background: rgba(0, 0, 0, 0.80);
       backdrop-filter: blur(8px);
     }
 
@@ -901,32 +668,20 @@
     }
 
     .modal-card {
-      width: min(100%, 530px);
+      width: min(100%, 540px);
       max-height: calc(100vh - 36px);
       overflow-y: auto;
       padding: 23px 18px;
       border: 1px solid rgba(255, 255, 255, 0.14);
       border-radius: 27px;
-      background:
-        linear-gradient(
-          145deg,
-          #22252d,
-          #0c0d11
-        );
-      box-shadow: 0 25px 72px rgba(0, 0, 0, 0.6);
-      animation: modalIn 0.24s ease;
+      background: linear-gradient(145deg, #22252d, #0c0d11);
+      box-shadow: 0 25px 72px rgba(0, 0, 0, 0.60);
+      animation: modalIn 0.22s ease;
     }
 
     @keyframes modalIn {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(28px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .modal-header {
@@ -942,11 +697,12 @@
       font-weight: 950;
     }
 
-    .modal-header p {
-      margin: 7px 0 0;
+    .modal-header p,
+    .modal-text {
+      margin: 8px 0 0;
       color: var(--muted);
-      font-size: 0.83rem;
-      line-height: 1.52;
+      font-size: 0.84rem;
+      line-height: 1.58;
     }
 
     .close-modal {
@@ -956,24 +712,87 @@
       display: grid;
       place-items: center;
       border-radius: 50%;
-      color: #ffffff;
+      color: #fff;
       font-size: 1.2rem;
       background: rgba(255, 255, 255, 0.09);
       cursor: pointer;
     }
 
-    /* FEEDBACK */
+    .choice-grid,
+    .steps {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .choice-button {
+      width: 100%;
+      min-height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 12px 14px;
+      border-radius: 17px;
+      color: #fff;
+      font-weight: 950;
+      cursor: pointer;
+    }
+
+    .choice-button.primary {
+      background: linear-gradient(135deg, var(--green), var(--green-dark));
+    }
+
+    .choice-button.secondary {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .choice-button.install {
+      background: linear-gradient(135deg, var(--red), var(--red-dark));
+    }
+
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 13px;
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .step-number {
+      width: 34px;
+      height: 34px;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: #fff;
+      font-size: 0.84rem;
+      font-weight: 950;
+      background: linear-gradient(135deg, var(--red), var(--red-dark));
+    }
+
+    .step-text {
+      color: #e8eaf0;
+      font-size: 0.82rem;
+      line-height: 1.5;
+    }
+
+    .step-text strong {
+      color: #fff;
+    }
 
     .private-badge {
       display: inline-flex;
-      align-items: center;
-      gap: 6px;
       margin-top: 17px;
       padding: 7px 10px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.10);
       border-radius: 999px;
       color: #d5d7dc;
-      font-size: 0.7rem;
+      font-size: 0.70rem;
       font-weight: 850;
       background: rgba(255, 255, 255, 0.045);
     }
@@ -1006,171 +825,13 @@
       text-align: center;
     }
 
-    .submit-feedback {
-      width: 100%;
-      min-height: 55px;
-      margin-top: 18px;
-      border-radius: 17px;
-      color: #ffffff;
-      font-weight: 950;
-      background:
-        linear-gradient(
-          135deg,
-          var(--red),
-          var(--red-dark)
-        );
-      cursor: pointer;
-    }
-
     .feedback-note {
-      margin: 11px 4px 0;
+      margin: 12px 4px 0;
       color: #7d818a;
-      font-size: 0.68rem;
+      font-size: 0.69rem;
       line-height: 1.5;
       text-align: center;
     }
-
-    .thank-you {
-      display: none;
-      padding: 20px 4px 7px;
-      text-align: center;
-    }
-
-    .thank-you-icon {
-      width: 67px;
-      height: 67px;
-      display: grid;
-      place-items: center;
-      margin: 0 auto 14px;
-      border-radius: 50%;
-      color: #ffffff;
-      font-size: 1.85rem;
-      background: var(--green);
-    }
-
-    .thank-you h3 {
-      margin: 0;
-      font-size: 1.24rem;
-    }
-
-    .thank-you p {
-      margin: 9px 0 18px;
-      color: var(--muted);
-      font-size: 0.84rem;
-      line-height: 1.55;
-    }
-
-    .return-button {
-      min-height: 49px;
-      padding: 10px 24px;
-      border-radius: 15px;
-      color: #ffffff;
-      font-weight: 850;
-      background: rgba(255, 255, 255, 0.1);
-      cursor: pointer;
-    }
-
-    /* INSTALL MODAL */
-
-    .install-content {
-      text-align: center;
-    }
-
-    .install-icon {
-      width: 76px;
-      height: 76px;
-      display: grid;
-      place-items: center;
-      margin: 0 auto 16px;
-      border: 1px solid rgba(255, 255, 255, 0.13);
-      border-radius: 22px;
-      background:
-        linear-gradient(
-          145deg,
-          rgba(237, 28, 36, 0.22),
-          rgba(255, 255, 255, 0.04)
-        );
-    }
-
-    .install-icon img {
-      width: 60px;
-      height: 60px;
-      object-fit: contain;
-      border-radius: 15px;
-    }
-
-    .install-content h2 {
-      margin: 0;
-      font-size: 1.25rem;
-      font-weight: 950;
-    }
-
-    .install-intro {
-      margin: 9px auto 18px;
-      color: var(--muted);
-      font-size: 0.84rem;
-      line-height: 1.55;
-    }
-
-    .install-steps {
-      display: grid;
-      gap: 10px;
-      margin-top: 17px;
-      text-align: left;
-    }
-
-    .install-step {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      min-height: 61px;
-      padding: 11px 13px;
-      border: 1px solid var(--line);
-      border-radius: 17px;
-      background: rgba(255, 255, 255, 0.04);
-    }
-
-    .install-step-number {
-      width: 36px;
-      height: 36px;
-      flex: 0 0 auto;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      color: #ffffff;
-      font-size: 0.86rem;
-      font-weight: 950;
-      background:
-        linear-gradient(
-          135deg,
-          var(--red),
-          var(--red-dark)
-        );
-    }
-
-    .install-step-text {
-      color: #e8eaf0;
-      font-size: 0.82rem;
-      line-height: 1.45;
-    }
-
-    .install-close-button {
-      width: 100%;
-      min-height: 52px;
-      margin-top: 18px;
-      border-radius: 16px;
-      color: #ffffff;
-      font-weight: 900;
-      background:
-        linear-gradient(
-          135deg,
-          var(--red),
-          var(--red-dark)
-        );
-      cursor: pointer;
-    }
-
-    /* TOAST */
 
     .toast {
       position: fixed;
@@ -1182,7 +843,7 @@
       padding: 12px 16px;
       border: 1px solid rgba(255, 255, 255, 0.14);
       border-radius: 14px;
-      color: #ffffff;
+      color: #fff;
       font-size: 0.79rem;
       font-weight: 800;
       text-align: center;
@@ -1191,9 +852,7 @@
       transform: translate(-50%, 18px);
       opacity: 0;
       pointer-events: none;
-      transition:
-        opacity 0.2s ease,
-        transform 0.2s ease;
+      transition: opacity 0.2s ease, transform 0.2s ease;
     }
 
     .toast.show {
@@ -1204,10 +863,6 @@
     @media (min-width: 620px) {
       .categories {
         grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-
-      .category-media {
-        height: 132px;
       }
 
       .category-info {
@@ -1238,33 +893,30 @@
     }
   </style>
 </head>
-
 <body>
-
   <div class="page">
-
     <header class="hero">
-      <div class="hero-top">
+      <img
+        class="hero-image"
+        src="./cover.webp"
+        alt="Speed Factory Moto"
+        width="1200"
+        height="700"
+        loading="eager"
+        decoding="async"
+        fetchpriority="high"
+        onerror="this.onerror=null;this.src='./cover%20no%20backround.png';"
+      >
+      <div class="hero-overlay"></div>
 
+      <div class="hero-top">
         <div class="hero-label">
           <span class="hero-dot"></span>
           SPEED FACTORY MOTO
         </div>
 
-        <button
-          class="share-top"
-          type="button"
-          aria-label="Κοινοποίηση προφίλ"
-          onclick="shareProfile()"
-        >
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
+        <button class="icon-button" type="button" aria-label="Κοινοποίηση προφίλ" onclick="shareProfile()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <circle cx="18" cy="5" r="3"></circle>
             <circle cx="6" cy="12" r="3"></circle>
             <circle cx="18" cy="19" r="3"></circle>
@@ -1272,876 +924,487 @@
             <path d="m8.6 13.5 6.8 4"></path>
           </svg>
         </button>
-
       </div>
     </header>
 
     <section class="profile-card">
-
       <div class="logo-ring">
         <div class="logo-inner">
           <img
-            src="logo%20git%20hub.png"
+            src="./logo.webp"
             alt="Λογότυπο Speed Factory Moto"
+            width="512"
+            height="512"
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
+            onerror="this.onerror=null;this.src='./logo%20git%20hub.png';"
           >
         </div>
       </div>
 
       <h1>SPEED <span>FACTORY</span></h1>
-
-      <p class="owner">
-        Χρήστος Νικολακόπουλος
-      </p>
-
-      <p class="profile-description">
-        Service, επισκευές, συντήρηση, βελτιώσεις και ολοκληρωμένες
-        λύσεις για τη μοτοσυκλέτα και τον αναβάτη.
-      </p>
+      <p class="owner">Χρήστος Νικολακόπουλος</p>
+      <p class="profile-description">Service, επισκευές, συντήρηση, βελτιώσεις και ολοκληρωμένες λύσεις για τη μοτοσυκλέτα και τον αναβάτη.</p>
 
       <div class="location-line">
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-        >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
           <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"></path>
           <circle cx="12" cy="10" r="3"></circle>
         </svg>
-
         Δημοκρατίας 23, Οβριά Πατρών
       </div>
 
       <div class="profile-actions">
-
-        <button
-          class="profile-action"
-          type="button"
-          onclick="saveContact()"
-        >
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
+        <button class="profile-action" type="button" onclick="downloadVCard()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <path d="M19 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"></path>
             <circle cx="11" cy="7" r="4"></circle>
             <path d="M19 8v6"></path>
             <path d="M22 11h-6"></path>
           </svg>
-
           Αποθήκευση επαφής
         </button>
 
-        <button
-          class="profile-action"
-          type="button"
-          onclick="shareProfile()"
-        >
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
+        <button class="profile-action" type="button" onclick="shareProfile()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <circle cx="18" cy="5" r="3"></circle>
             <circle cx="6" cy="12" r="3"></circle>
             <circle cx="18" cy="19" r="3"></circle>
             <path d="m8.6 10.5 6.8-4"></path>
             <path d="m8.6 13.5 6.8 4"></path>
           </svg>
-
           Κοινοποίηση
         </button>
-
       </div>
     </section>
 
     <main>
-
       <section class="section">
-        <div class="section-heading">
-          <span class="heading-mark"></span>
-          <h2>Άμεση επικοινωνία</h2>
-        </div>
+        <div class="section-heading"><span class="heading-mark"></span><h2>Άμεση επικοινωνία</h2></div>
 
         <div class="quick-actions">
-
-          <a
-            class="quick-button main"
-            href="tel:+306972776501"
-          >
+          <a class="quick-button main" href="tel:+306972776501">
             <span class="quick-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  d="M22 16.92v3a2 2 0 0 1-2.18 2
-                  19.79 19.79 0 0 1-8.63-3.07
-                  19.5 19.5 0 0 1-6-6
-                  19.79 19.79 0 0 1-3.07-8.67
-                  A2 2 0 0 1 3.91 2h3
-                  a2 2 0 0 1 2 1.72
-                  c.12.9.33 1.78.62 2.63
-                  a2 2 0 0 1-.45 2.11L7.81 9.73
-                  a16 16 0 0 0 6 6l1.27-1.27
-                  a2 2 0 0 1 2.11-.45
-                  c.85.29 1.73.5 2.63.62
-                  A2 2 0 0 1 22 16.92Z"
-                ></path>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.91 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L7.81 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92Z"></path>
               </svg>
             </span>
-
-            <span>
-              Καλέστε τώρα
-              <small>697 277 6501</small>
-            </span>
+            <span>Καλέστε τώρα<small>697 277 6501</small></span>
           </a>
 
-          <a
-            class="quick-button"
-            href="https://www.google.com/maps/search/?api=1&query=Speed%20Factory%20Moto%20Οβριά"
-          >
+          <a class="quick-button" href="https://www.google.com/maps/search/?api=1&query=Speed%20Factory%20Moto&query_place_id=ChIJhwIEdX83XhMRQpBXaTH9o4w">
             <span class="quick-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                 <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"></path>
                 <circle cx="12" cy="10" r="3"></circle>
               </svg>
             </span>
-
-            <span>
-              Οδηγίες πρόσβασης
-              <small>Δημοκρατίας 23, Οβριά</small>
-            </span>
+            <span>Οδηγίες πρόσβασης<small>Δημοκρατίας 23, Οβριά</small></span>
           </a>
 
-          <a
-            class="quick-button"
-            href="tel:+302610522613"
-          >
+          <a class="quick-button" href="tel:+302610522613">
             <span class="quick-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2"></path>
                 <path d="M3.91 2h3a2 2 0 0 1 2 1.72"></path>
                 <path d="M7.81 9.73a16 16 0 0 0 6 6"></path>
               </svg>
             </span>
-
-            <span>
-              Σταθερό κατάστημα
-              <small>261 052 2613</small>
-            </span>
+            <span>Σταθερό κατάστημα<small>261 052 2613</small></span>
           </a>
 
-          <a
-            class="quick-button"
-            href="mailto:sfnikolakopoulos@gmail.com"
-          >
+          <a class="quick-button" href="mailto:sfnikolakopoulos@gmail.com">
             <span class="quick-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                 <rect x="3" y="5" width="18" height="14" rx="2"></rect>
                 <path d="m3 7 9 6 9-6"></path>
               </svg>
             </span>
-
-            <span>
-              Αποστολή email
-              <small>Επικοινωνήστε μαζί μας</small>
-            </span>
+            <span>Αποστολή email<small>Επικοινωνήστε μαζί μας</small></span>
           </a>
-
         </div>
       </section>
 
       <section class="section">
-        <div class="section-heading">
-          <span class="heading-mark"></span>
-          <h2>Social Media</h2>
-        </div>
+        <div class="section-heading"><span class="heading-mark"></span><h2>Social Media</h2></div>
 
         <div class="social-list">
-
-          <a
-            class="social-button"
-            href="https://www.instagram.com/nikolakopoulos_xristos/"
-          >
+          <a class="social-button" href="https://www.instagram.com/nikolakopoulos_xristos/">
             <span class="social-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                 <rect x="3" y="3" width="18" height="18" rx="5"></rect>
                 <circle cx="12" cy="12" r="4"></circle>
-                <circle
-                  cx="17.5"
-                  cy="6.5"
-                  r="1"
-                  fill="currentColor"
-                  stroke="none"
-                ></circle>
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle>
               </svg>
             </span>
-
-            <span class="social-content">
-              <strong>Visit Instagram</strong>
-              <span>@nikolakopoulos_xristos</span>
-            </span>
-
+            <span class="social-content"><strong>Visit Instagram</strong><span>@nikolakopoulos_xristos</span></span>
             <span class="social-arrow">›</span>
           </a>
 
-          <a
-            class="social-button"
-            href="https://www.facebook.com/profile.php?id=61558026434106"
-          >
+          <a class="social-button" href="https://www.facebook.com/profile.php?id=61558026434106">
             <span class="social-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path
-                  d="M14 8h3V4.2c-.5-.1-2.2-.2-4.1-.2
-                  C9.1 4 6.5 6.3 6.5 10.5V14H3v4.3h3.5V24h4.4v-5.7h3.7
-                  L15.2 14h-4.3v-3.1C10.9 9.7 11.2 8 14 8Z"
-                  transform="translate(2 -2)"
-                ></path>
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M14 8h3V4.2c-.5-.1-2.2-.2-4.1-.2C9.1 4 6.5 6.3 6.5 10.5V14H3v4.3h3.5V24h4.4v-5.7h3.7L15.2 14h-4.3v-3.1C10.9 9.7 11.2 8 14 8Z" transform="translate(2 -2)"></path>
               </svg>
             </span>
-
-            <span class="social-content">
-              <strong>Visit Facebook</strong>
-              <span>SPEED factory MOTO</span>
-            </span>
-
+            <span class="social-content"><strong>Visit Facebook</strong><span>SPEED factory MOTO</span></span>
             <span class="social-arrow">›</span>
           </a>
-
         </div>
       </section>
 
       <section class="section">
-        <div class="section-heading">
-          <span class="heading-mark"></span>
-          <h2>Speed Factory Moto</h2>
-        </div>
-
-        <p class="about-text">
-          Η Speed Factory Moto προσφέρει επαγγελματικές υπηρεσίες
-          συντήρησης, επισκευής και βελτίωσης μοτοσυκλετών.
-          Με προτεραιότητα την ασφάλεια, τη σωστή τεχνική εργασία
-          και την προσωπική εξυπηρέτηση κάθε αναβάτη.
-        </p>
+        <div class="section-heading"><span class="heading-mark"></span><h2>Speed Factory Moto</h2></div>
+        <p class="about-text">Η Speed Factory Moto προσφέρει επαγγελματικές υπηρεσίες συντήρησης, επισκευής και βελτίωσης μοτοσυκλετών, με προτεραιότητα την ασφάλεια, τη σωστή τεχνική εργασία και την προσωπική εξυπηρέτηση κάθε αναβάτη.</p>
 
         <div class="services-grid">
-
-          <div class="service-item">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path d="M14.7 6.3a4 4 0 0 0-5-5l2.1 2.1-2.4 2.4-2.1-2.1a4 4 0 0 0 5 5L20 16.4a2.1 2.1 0 0 1-3 3l-7.7-7.7"></path>
-            </svg>
-
-            Service και συντήρηση
-          </div>
-
-          <div class="service-item">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <circle cx="12" cy="12" r="9"></circle>
-              <path d="m12 12 4-4"></path>
-            </svg>
-
-            Διαγνωστικός έλεγχος
-          </div>
-
-          <div class="service-item">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path d="M3 12h18"></path>
-              <path d="m15 6 6 6-6 6"></path>
-            </svg>
-
-            Βελτιώσεις και μετατροπές
-          </div>
-
-          <div class="service-item">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <circle cx="12" cy="12" r="8"></circle>
-              <circle cx="12" cy="12" r="3"></circle>
-            </svg>
-
-            Φρένα και αναρτήσεις
-          </div>
-
-          <div class="service-item">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <circle cx="12" cy="12" r="9"></circle>
-              <circle cx="12" cy="12" r="5"></circle>
-            </svg>
-
-            Ελαστικά μοτοσυκλέτας
-          </div>
-
-          <div class="service-item">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path d="M4 7h16v13H4z"></path>
-              <path d="M8 7V4h8v3"></path>
-            </svg>
-
-            Ανταλλακτικά και αξεσουάρ
-          </div>
-
+          <div class="service-item"><span>✓</span>Service και συντήρηση</div>
+          <div class="service-item"><span>✓</span>Διαγνωστικός έλεγχος</div>
+          <div class="service-item"><span>✓</span>Βελτιώσεις και μετατροπές</div>
+          <div class="service-item"><span>✓</span>Φρένα και αναρτήσεις</div>
+          <div class="service-item"><span>✓</span>Ελαστικά μοτοσυκλέτας</div>
+          <div class="service-item"><span>✓</span>Ανταλλακτικά και αξεσουάρ</div>
         </div>
       </section>
 
       <section class="section" id="products">
-        <div class="section-heading">
-          <span class="heading-mark"></span>
-          <h2>Τα προϊόντα μας</h2>
-        </div>
-
-        <p class="section-subtitle">
-          Οι φωτογραφίες και τα διαθέσιμα προϊόντα θα προστεθούν
-          σταδιακά στις παρακάτω κατηγορίες.
-        </p>
+        <div class="section-heading"><span class="heading-mark"></span><h2>Τα προϊόντα μας</h2></div>
+        <p class="section-subtitle">Οι φωτογραφίες και τα διαθέσιμα προϊόντα θα προστεθούν σταδιακά στις παρακάτω κατηγορίες.</p>
 
         <div class="categories">
-
           <article class="category-card">
-            <div class="category-media">
-              <div class="category-placeholder">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                >
-                  <path d="M5 15a7 7 0 0 1 14 0v3H5z"></path>
-                  <path d="M8 15v-2a4 4 0 0 1 8 0v2"></path>
-                  <path d="M5 18h14"></path>
-                </svg>
-
-                Χώρος φωτογραφιών
-              </div>
-            </div>
-
-            <div class="category-info">
-              <div>
-                <h3>Κράνη</h3>
-                <p>Μοντέλα και νέες παραλαβές</p>
-              </div>
-
-              <span class="soon-badge">ΣΥΝΤΟΜΑ</span>
-            </div>
+            <div class="category-media"><div class="category-placeholder"><strong>○</strong>Χώρος φωτογραφιών</div></div>
+            <div class="category-info"><div><h3>Κράνη</h3><p>Μοντέλα και νέες παραλαβές</p></div><span class="soon-badge">ΣΥΝΤΟΜΑ</span></div>
           </article>
 
           <article class="category-card">
-            <div class="category-media">
-              <div class="category-placeholder">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                >
-                  <path d="M8 4 4 7l2 5 2-1v9h8v-9l2 1 2-5-4-3-2 2h-4z"></path>
-                </svg>
-
-                Χώρος φωτογραφιών
-              </div>
-            </div>
-
-            <div class="category-info">
-              <div>
-                <h3>Στολές</h3>
-                <p>Ρουχισμός και εξοπλισμός αναβάτη</p>
-              </div>
-
-              <span class="soon-badge">ΣΥΝΤΟΜΑ</span>
-            </div>
+            <div class="category-media"><div class="category-placeholder"><strong>◇</strong>Χώρος φωτογραφιών</div></div>
+            <div class="category-info"><div><h3>Στολές</h3><p>Ρουχισμός και εξοπλισμός αναβάτη</p></div><span class="soon-badge">ΣΥΝΤΟΜΑ</span></div>
           </article>
 
           <article class="category-card">
-            <div class="category-media">
-              <div class="category-placeholder">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                >
-                  <circle cx="12" cy="12" r="5"></circle>
-                  <path d="M12 3v4"></path>
-                  <path d="M12 17v4"></path>
-                  <path d="m4.2 7.5 3.5 2"></path>
-                  <path d="m16.3 14.5 3.5 2"></path>
-                </svg>
-
-                Χώρος φωτογραφιών
-              </div>
-            </div>
-
-            <div class="category-info">
-              <div>
-                <h3>Εξαρτήματα</h3>
-                <p>Αξεσουάρ και ανταλλακτικά moto</p>
-              </div>
-
-              <span class="soon-badge">ΣΥΝΤΟΜΑ</span>
-            </div>
+            <div class="category-media"><div class="category-placeholder"><strong>⚙</strong>Χώρος φωτογραφιών</div></div>
+            <div class="category-info"><div><h3>Εξαρτήματα</h3><p>Αξεσουάρ και ανταλλακτικά moto</p></div><span class="soon-badge">ΣΥΝΤΟΜΑ</span></div>
           </article>
-
         </div>
       </section>
 
       <section class="section">
-        <div class="section-heading">
-          <span class="heading-mark"></span>
-          <h2>Ωράριο λειτουργίας</h2>
-        </div>
-
+        <div class="section-heading"><span class="heading-mark"></span><h2>Ωράριο λειτουργίας</h2></div>
         <table class="hours-table">
           <tbody>
-            <tr>
-              <td>Δευτέρα</td>
-              <td>08:00 – 16:00</td>
-            </tr>
-
-            <tr>
-              <td>Τρίτη</td>
-              <td>08:00 – 16:00</td>
-            </tr>
-
-            <tr>
-              <td>Τετάρτη</td>
-              <td>08:00 – 16:00</td>
-            </tr>
-
-            <tr>
-              <td>Πέμπτη</td>
-              <td>08:00 – 16:00</td>
-            </tr>
-
-            <tr>
-              <td>Παρασκευή</td>
-              <td>08:00 – 16:00</td>
-            </tr>
-
-            <tr>
-              <td>Σάββατο</td>
-              <td>08:00 – 14:00</td>
-            </tr>
-
-            <tr>
-              <td>Κυριακή</td>
-              <td class="closed">Κλειστά</td>
-            </tr>
+            <tr><td>Δευτέρα</td><td>08:00 – 16:00</td></tr>
+            <tr><td>Τρίτη</td><td>08:00 – 16:00</td></tr>
+            <tr><td>Τετάρτη</td><td>08:00 – 16:00</td></tr>
+            <tr><td>Πέμπτη</td><td>08:00 – 16:00</td></tr>
+            <tr><td>Παρασκευή</td><td>08:00 – 16:00</td></tr>
+            <tr><td>Σάββατο</td><td>08:00 – 14:00</td></tr>
+            <tr><td>Κυριακή</td><td class="closed">Κλειστά</td></tr>
           </tbody>
         </table>
       </section>
 
       <section class="section rating-section">
-
-        <h2 class="rating-title">
-          Πώς ήταν η εμπειρία σας;
-        </h2>
-
-        <p class="rating-description">
-          Επιλέξτε τη φατσούλα που περιγράφει καλύτερα
-          την εμπειρία σας στη Speed Factory Moto.
-        </p>
+        <h2 class="rating-title">Πώς ήταν η εμπειρία σας;</h2>
+        <p class="rating-description">Επιλέξτε τη φατσούλα που περιγράφει καλύτερα την εμπειρία σας στη Speed Factory Moto.</p>
 
         <div class="faces">
-
-          <button
-            class="face-button"
-            type="button"
-            aria-label="Πολύ καλή εμπειρία"
-            onclick="openGoogleReview()"
-          >
-            <svg
-              class="face-happy"
-              viewBox="0 0 64 64"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="4"
-              stroke-linecap="round"
-            >
+          <button class="face-button" type="button" aria-label="Πολύ καλή εμπειρία" onclick="openGoogleReview()">
+            <svg class="face-happy" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" aria-hidden="true">
               <circle cx="32" cy="32" r="27"></circle>
-
-              <circle
-                cx="23"
-                cy="25"
-                r="2.5"
-                fill="currentColor"
-                stroke="none"
-              ></circle>
-
-              <circle
-                cx="41"
-                cy="25"
-                r="2.5"
-                fill="currentColor"
-                stroke="none"
-              ></circle>
-
+              <circle cx="23" cy="25" r="2.5" fill="currentColor" stroke="none"></circle>
+              <circle cx="41" cy="25" r="2.5" fill="currentColor" stroke="none"></circle>
               <path d="M20 37c3 7 8 10 12 10s9-3 12-10"></path>
             </svg>
-
             <span>Πολύ καλή</span>
           </button>
 
-          <button
-            class="face-button"
-            type="button"
-            aria-label="Μέτρια εμπειρία"
-            onclick="openFeedback('Μέτρια εμπειρία', 3)"
-          >
-            <svg
-              class="face-neutral"
-              viewBox="0 0 64 64"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="4"
-              stroke-linecap="round"
-            >
+          <button class="face-button" type="button" aria-label="Μέτρια εμπειρία" onclick="openFeedback('Μέτρια εμπειρία', 3)">
+            <svg class="face-neutral" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" aria-hidden="true">
               <circle cx="32" cy="32" r="27"></circle>
-
-              <circle
-                cx="23"
-                cy="25"
-                r="2.5"
-                fill="currentColor"
-                stroke="none"
-              ></circle>
-
-              <circle
-                cx="41"
-                cy="25"
-                r="2.5"
-                fill="currentColor"
-                stroke="none"
-              ></circle>
-
+              <circle cx="23" cy="25" r="2.5" fill="currentColor" stroke="none"></circle>
+              <circle cx="41" cy="25" r="2.5" fill="currentColor" stroke="none"></circle>
               <path d="M22 42h20"></path>
             </svg>
-
             <span>Μέτρια</span>
           </button>
 
-          <button
-            class="face-button"
-            type="button"
-            aria-label="Δεν έμεινα ικανοποιημένος"
-            onclick="openFeedback('Δεν έμεινα ικανοποιημένος', 1)"
-          >
-            <svg
-              class="face-sad"
-              viewBox="0 0 64 64"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="4"
-              stroke-linecap="round"
-            >
+          <button class="face-button" type="button" aria-label="Δεν έμεινα ικανοποιημένος" onclick="openFeedback('Δεν έμεινα ικανοποιημένος', 1)">
+            <svg class="face-sad" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" aria-hidden="true">
               <circle cx="32" cy="32" r="27"></circle>
-
-              <circle
-                cx="23"
-                cy="25"
-                r="2.5"
-                fill="currentColor"
-                stroke="none"
-              ></circle>
-
-              <circle
-                cx="41"
-                cy="25"
-                r="2.5"
-                fill="currentColor"
-                stroke="none"
-              ></circle>
-
+              <circle cx="23" cy="25" r="2.5" fill="currentColor" stroke="none"></circle>
+              <circle cx="41" cy="25" r="2.5" fill="currentColor" stroke="none"></circle>
               <path d="M21 46c3-7 8-10 11-10s8 3 11 10"></path>
             </svg>
-
             <span>Όχι καλή</span>
           </button>
-
         </div>
       </section>
-
     </main>
 
     <footer>
       <strong>Powered by Andreas Lazaros • Jewel Art</strong><br>
-
-      Instagram:
-      <a href="https://www.instagram.com/lazaros_jewelart/">
-        Lazaros Jewel Art
-      </a>
+      Instagram: <a href="https://www.instagram.com/lazaros_jewelart/">Lazaros Jewel Art</a>
     </footer>
-
   </div>
 
-  <!-- ΣΤΑΘΕΡΟ ΠΡΑΣΙΝΟ ΚΟΥΜΠΙ -->
-
   <div class="sticky-save">
-    <button
-      type="button"
-      onclick="installProfile()"
-    >
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-      >
+    <button type="button" onclick="handleMainSave()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
         <path d="M12 3v12"></path>
         <path d="m7 10 5 5 5-5"></path>
         <path d="M5 21h14"></path>
       </svg>
-
       Αποθήκευση Speed Factory στο κινητό
     </button>
   </div>
 
-  <!-- FEEDBACK MODAL -->
-
-  <div
-    class="modal"
-    id="feedbackModal"
-    role="dialog"
-    aria-modal="true"
-    onclick="modalBackgroundClick(event)"
-  >
+  <!-- iPhone: κύρια επιλογή επαφής και δεύτερη επιλογή εφαρμογής -->
+  <div class="modal" id="iosSaveModal" role="dialog" aria-modal="true" aria-labelledby="iosSaveTitle" onclick="closeOnBackground(event, 'iosSaveModal')">
     <div class="modal-card">
-
-      <div id="feedbackForm">
-
-        <div class="modal-header">
-          <div>
-            <h2>Ιδιωτική αξιολόγηση</h2>
-
-            <p>
-              Επιλέξτε τα αστέρια που αντιστοιχούν στην εμπειρία σας.
-              Δεν χρειάζεται να γράψετε κάποιο σχόλιο.
-            </p>
-          </div>
-
-          <button
-            class="close-modal"
-            type="button"
-            aria-label="Κλείσιμο"
-            onclick="closeFeedback()"
-          >
-            ×
-          </button>
+      <div class="modal-header">
+        <div>
+          <h2 id="iosSaveTitle">Αποθήκευση Speed Factory στο iPhone</h2>
+          <p>Η πιο εύκολη επιλογή στο iPhone είναι να αποθηκεύσετε το Speed Factory στις επαφές σας. Μέσα στην επαφή θα υπάρχει και το link του ψηφιακού προφίλ.</p>
         </div>
-
-        <div class="private-badge">
-          Η αξιολόγηση δεν δημοσιεύεται στο Google
-        </div>
-
-        <div class="stars">
-          <button
-            class="star"
-            type="button"
-            data-value="1"
-            onclick="setRating(1)"
-          >★</button>
-
-          <button
-            class="star"
-            type="button"
-            data-value="2"
-            onclick="setRating(2)"
-          >★</button>
-
-          <button
-            class="star"
-            type="button"
-            data-value="3"
-            onclick="setRating(3)"
-          >★</button>
-
-          <button
-            class="star"
-            type="button"
-            data-value="4"
-            onclick="setRating(4)"
-          >★</button>
-
-          <button
-            class="star"
-            type="button"
-            data-value="5"
-            onclick="setRating(5)"
-          >★</button>
-        </div>
-
-        <div
-          class="rating-selection"
-          id="ratingSelection"
-        ></div>
-
-        <button
-          class="submit-feedback"
-          type="button"
-          onclick="sendPrivateFeedback()"
-        >
-          Αποστολή ιδιωτικής αξιολόγησης
-        </button>
-
-        <p class="feedback-note">
-          Θα ανοίξει η εφαρμογή email του κινητού με έτοιμη
-          τη βαθμολογία προς τη Speed Factory Moto.
-        </p>
-
+        <button class="close-modal" type="button" aria-label="Κλείσιμο" onclick="closeModal('iosSaveModal')">×</button>
       </div>
 
-      <div
-        class="thank-you"
-        id="thankYou"
-      >
-        <div class="thank-you-icon">✓</div>
-
-        <h3>Ευχαριστούμε για την αξιολόγηση</h3>
-
-        <p>
-          Η γνώμη σας βοηθά τη Speed Factory Moto
-          να βελτιώνει συνεχώς τις υπηρεσίες της.
-        </p>
-
-        <button
-          class="return-button"
-          type="button"
-          onclick="closeFeedback()"
-        >
-          Επιστροφή στη σελίδα
-        </button>
+      <div class="steps">
+        <div class="step"><span class="step-number">1</span><span class="step-text">Πατήστε το πράσινο κουμπί <strong>Αποθήκευση στις επαφές</strong>.</span></div>
+        <div class="step"><span class="step-number">2</span><span class="step-text">Θα ανοίξει η κάρτα επαφής της Speed Factory. Πατήστε <strong>Δημιουργία νέας επαφής</strong> ή <strong>Νέα επαφή</strong>.</span></div>
+        <div class="step"><span class="step-number">3</span><span class="step-text">Μπορείτε να κρατήσετε το έτοιμο όνομα ή να το αλλάξετε όπως σας εξυπηρετεί.</span></div>
+        <div class="step"><span class="step-number">4</span><span class="step-text">Πατήστε <strong>Τέλος</strong> ή <strong>Αποθήκευση</strong>. Όταν ανοίγετε την επαφή, το link του προφίλ θα βρίσκεται μέσα στις πληροφορίες της.</span></div>
       </div>
 
+      <div class="choice-grid">
+        <button class="choice-button primary" type="button" onclick="downloadVCard()">Αποθήκευση στις επαφές</button>
+        <button class="choice-button secondary" type="button" onclick="openIOSAppInstructions()">Θέλω το Speed Factory σαν εφαρμογή</button>
+      </div>
     </div>
   </div>
 
-  <!-- INSTALL MODAL -->
-
-  <div
-    class="modal"
-    id="installModal"
-    role="dialog"
-    aria-modal="true"
-    onclick="installModalBackgroundClick(event)"
-  >
+  <!-- iPhone: οδηγίες εφαρμογής -->
+  <div class="modal" id="iosAppModal" role="dialog" aria-modal="true" aria-labelledby="iosAppTitle" onclick="closeOnBackground(event, 'iosAppModal')">
     <div class="modal-card">
-
-      <div class="install-content">
-
-        <div class="install-icon">
-          <img
-            src="./icon-192.png"
-            alt="Speed Factory"
-          >
+      <div class="modal-header">
+        <div>
+          <h2 id="iosAppTitle">Προσθήκη σαν εφαρμογή</h2>
+          <p>Ακολουθήστε τα παρακάτω βήματα μέσα από το Safari.</p>
         </div>
-
-        <h2>
-          Αποθήκευση Speed Factory
-        </h2>
-
-        <p
-          class="install-intro"
-          id="installIntro"
-        >
-          Ακολουθήστε τα βήματα για να αποθηκεύσετε
-          το προφίλ στην αρχική οθόνη του κινητού.
-        </p>
-
-        <div
-          class="install-steps"
-          id="installSteps"
-        ></div>
-
-        <button
-          class="install-close-button"
-          type="button"
-          onclick="closeInstallModal()"
-        >
-          Κατάλαβα
-        </button>
-
+        <button class="close-modal" type="button" aria-label="Κλείσιμο" onclick="closeModal('iosAppModal')">×</button>
       </div>
 
+      <div class="steps">
+        <div class="step"><span class="step-number">1</span><span class="step-text">Ανοίξτε αυτή τη σελίδα στο <strong>Safari</strong>.</span></div>
+        <div class="step"><span class="step-number">2</span><span class="step-text">Πατήστε <strong>Κοινοποίηση</strong>.</span></div>
+        <div class="step"><span class="step-number">3</span><span class="step-text">Επιλέξτε <strong>Προσθήκη στην οθόνη Αφετηρίας</strong>.</span></div>
+        <div class="step"><span class="step-number">4</span><span class="step-text">Ενεργοποιήστε το <strong>Άνοιγμα ως εφαρμογή</strong> και πατήστε <strong>Προσθήκη</strong>.</span></div>
+      </div>
+
+      <div class="choice-grid">
+        <button class="choice-button secondary" type="button" onclick="closeModal('iosAppModal')">Κατάλαβα</button>
+      </div>
     </div>
   </div>
 
-  <div
-    class="toast"
-    id="toast"
-    role="status"
-    aria-live="polite"
-  ></div>
+  <!-- Android / Chrome installation -->
+  <div class="modal" id="androidInstallModal" role="dialog" aria-modal="true" aria-labelledby="androidInstallTitle" onclick="closeOnBackground(event, 'androidInstallModal')">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div>
+          <h2 id="androidInstallTitle">Εγκατάσταση Speed Factory</h2>
+          <p id="androidInstallText">Πατήστε «Εγκατάσταση τώρα» για να προστεθεί το Speed Factory στην αρχική οθόνη.</p>
+        </div>
+        <button class="close-modal" type="button" aria-label="Κλείσιμο" onclick="closeModal('androidInstallModal')">×</button>
+      </div>
+
+      <div class="choice-grid">
+        <button class="choice-button install" id="androidInstallButton" type="button" onclick="requestNativeInstall()">Εγκατάσταση τώρα</button>
+        <button class="choice-button secondary" type="button" onclick="downloadVCard()">Αποθήκευση και στις επαφές</button>
+      </div>
+
+      <div class="steps" id="androidFallbackSteps" hidden>
+        <div class="step"><span class="step-number">1</span><span class="step-text">Ανοίξτε τη σελίδα στο <strong>Google Chrome</strong>.</span></div>
+        <div class="step"><span class="step-number">2</span><span class="step-text">Πατήστε τις <strong>τρεις τελείες ⋮</strong> επάνω δεξιά.</span></div>
+        <div class="step"><span class="step-number">3</span><span class="step-text">Επιλέξτε <strong>Εγκατάσταση εφαρμογής</strong> ή <strong>Προσθήκη στην αρχική οθόνη</strong>.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Generic fallback -->
+  <div class="modal" id="genericSaveModal" role="dialog" aria-modal="true" aria-labelledby="genericSaveTitle" onclick="closeOnBackground(event, 'genericSaveModal')">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div>
+          <h2 id="genericSaveTitle">Αποθήκευση Speed Factory</h2>
+          <p>Μπορείτε να αποθηκεύσετε την επαφή ή να προσθέσετε τη σελίδα στην αρχική οθόνη από το μενού του browser.</p>
+        </div>
+        <button class="close-modal" type="button" aria-label="Κλείσιμο" onclick="closeModal('genericSaveModal')">×</button>
+      </div>
+
+      <div class="choice-grid">
+        <button class="choice-button primary" type="button" onclick="downloadVCard()">Αποθήκευση στις επαφές</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Feedback -->
+  <div class="modal" id="feedbackModal" role="dialog" aria-modal="true" aria-labelledby="feedbackTitle" onclick="closeOnBackground(event, 'feedbackModal')">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div>
+          <h2 id="feedbackTitle">Ιδιωτική αξιολόγηση</h2>
+          <p>Επιλέξτε τα αστέρια που αντιστοιχούν στην εμπειρία σας. Δεν χρειάζεται να γράψετε σχόλιο.</p>
+        </div>
+        <button class="close-modal" type="button" aria-label="Κλείσιμο" onclick="closeModal('feedbackModal')">×</button>
+      </div>
+
+      <div class="private-badge">Η αξιολόγηση δεν δημοσιεύεται στο Google</div>
+
+      <div class="stars" aria-label="Επιλέξτε αστέρια">
+        <button class="star" type="button" data-value="1" onclick="setRating(1)">★</button>
+        <button class="star" type="button" data-value="2" onclick="setRating(2)">★</button>
+        <button class="star" type="button" data-value="3" onclick="setRating(3)">★</button>
+        <button class="star" type="button" data-value="4" onclick="setRating(4)">★</button>
+        <button class="star" type="button" data-value="5" onclick="setRating(5)">★</button>
+      </div>
+
+      <div class="rating-selection" id="ratingSelection"></div>
+
+      <div class="choice-grid">
+        <button class="choice-button install" type="button" onclick="sendPrivateFeedback()">Αποστολή ιδιωτικής αξιολόγησης</button>
+      </div>
+
+      <p class="feedback-note">Θα ανοίξει η εφαρμογή email του κινητού με έτοιμη τη βαθμολογία προς τη Speed Factory Moto.</p>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script>
-    const GOOGLE_REVIEW_URL =
-      "https://search.google.com/local/writereview?placeid=ChIJhwIEdX83XhMRQpBXaTH9o4w";
+    const GOOGLE_REVIEW_URL = "https://search.google.com/local/writereview?placeid=ChIJhwIEdX83XhMRQpBXaTH9o4w";
+    const COMPANY_EMAIL = "sfnikolakopoulos@gmail.com";
+    const PROFILE_URL = "https://carbridgefr-glitch.github.io/speedfactory/";
+    const VCARD_URL = "./speed-factory.vcf";
 
-    const COMPANY_EMAIL =
-      "sfnikolakopoulos@gmail.com";
-
-    const PROFILE_URL =
-      "https://carbridgefr-glitch.github.io/speed-factory/";
-
+    let deferredInstallPrompt = null;
     let selectedRating = 0;
     let selectedMood = "";
-    let deferredInstallPrompt = null;
     let toastTimer;
+
+    function isIOS() {
+      return /iphone|ipad|ipod/i.test(navigator.userAgent) ||
+        (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+    }
+
+    function isAndroid() {
+      return /android/i.test(navigator.userAgent);
+    }
+
+    function isStandalone() {
+      return window.matchMedia("(display-mode: standalone)").matches || navigator.standalone === true;
+    }
+
+    function openModal(id) {
+      closeAllModals();
+      document.getElementById(id).classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.remove("open");
+      document.body.style.overflow = "";
+    }
+
+    function closeAllModals() {
+      document.querySelectorAll(".modal.open").forEach((modal) => modal.classList.remove("open"));
+      document.body.style.overflow = "";
+    }
+
+    function closeOnBackground(event, id) {
+      if (event.target.id === id) closeModal(id);
+    }
+
+    function handleMainSave() {
+      if (isStandalone()) {
+        showToast("Το Speed Factory είναι ήδη αποθηκευμένο στο κινητό.");
+        return;
+      }
+
+      if (isIOS()) {
+        openModal("iosSaveModal");
+        return;
+      }
+
+      if (isAndroid()) {
+        openModal("androidInstallModal");
+        refreshAndroidInstallUI();
+        return;
+      }
+
+      openModal("genericSaveModal");
+    }
+
+    function openIOSAppInstructions() {
+      openModal("iosAppModal");
+    }
+
+    function downloadVCard() {
+      window.location.href = VCARD_URL;
+    }
+
+    function refreshAndroidInstallUI() {
+      const installButton = document.getElementById("androidInstallButton");
+      const fallbackSteps = document.getElementById("androidFallbackSteps");
+      const text = document.getElementById("androidInstallText");
+
+      if (deferredInstallPrompt) {
+        installButton.textContent = "Εγκατάσταση τώρα";
+        installButton.disabled = false;
+        fallbackSteps.hidden = true;
+        text.textContent = "Πατήστε «Εγκατάσταση τώρα» για να εμφανιστεί το κανονικό πλαίσιο εγκατάστασης του κινητού.";
+      } else {
+        installButton.textContent = "Έλεγχος εγκατάστασης";
+        installButton.disabled = false;
+        fallbackSteps.hidden = false;
+        text.textContent = "Αν δεν εμφανιστεί αμέσως το πλαίσιο εγκατάστασης, ανοίξτε τη σελίδα στο Chrome και ακολουθήστε τα παρακάτω βήματα.";
+      }
+    }
+
+    async function requestNativeInstall() {
+      if (!deferredInstallPrompt) {
+        refreshAndroidInstallUI();
+        showToast("Το Chrome δεν έδωσε ακόμη το πλαίσιο εγκατάστασης.");
+        return;
+      }
+
+      deferredInstallPrompt.prompt();
+      const choice = await deferredInstallPrompt.userChoice;
+      deferredInstallPrompt = null;
+
+      if (choice.outcome === "accepted") {
+        closeModal("androidInstallModal");
+        showToast("Η εγκατάσταση ξεκίνησε.");
+      } else {
+        refreshAndroidInstallUI();
+      }
+    }
+
+    window.addEventListener("beforeinstallprompt", (event) => {
+      event.preventDefault();
+      deferredInstallPrompt = event;
+      if (document.getElementById("androidInstallModal").classList.contains("open")) {
+        refreshAndroidInstallUI();
+      }
+    });
+
+    window.addEventListener("appinstalled", () => {
+      deferredInstallPrompt = null;
+      closeAllModals();
+      showToast("Το Speed Factory εγκαταστάθηκε στο κινητό.");
+    });
 
     function openGoogleReview() {
       window.location.href = GOOGLE_REVIEW_URL;
@@ -2149,53 +1412,19 @@
 
     function openFeedback(mood, defaultRating) {
       selectedMood = mood;
-      selectedRating = 0;
-
-      document.getElementById("feedbackForm").style.display = "block";
-      document.getElementById("thankYou").style.display = "none";
-
-      document
-        .getElementById("feedbackModal")
-        .classList.add("open");
-
-      document.body.style.overflow = "hidden";
-
       setRating(defaultRating);
-    }
-
-    function closeFeedback() {
-      document
-        .getElementById("feedbackModal")
-        .classList.remove("open");
-
-      document.body.style.overflow = "";
-    }
-
-    function modalBackgroundClick(event) {
-      if (event.target.id === "feedbackModal") {
-        closeFeedback();
-      }
+      openModal("feedbackModal");
     }
 
     function setRating(value) {
       selectedRating = value;
 
       document.querySelectorAll(".star").forEach((star) => {
-        const starValue = Number(star.dataset.value);
-
-        star.classList.toggle(
-          "active",
-          starValue <= selectedRating
-        );
+        star.classList.toggle("active", Number(star.dataset.value) <= selectedRating);
       });
 
-      const ratingText =
-        selectedRating === 1
-          ? "1 αστέρι"
-          : selectedRating + " αστέρια";
-
       document.getElementById("ratingSelection").textContent =
-        "Επιλέξατε " + ratingText;
+        selectedRating === 1 ? "Επιλέξατε 1 αστέρι" : `Επιλέξατε ${selectedRating} αστέρια`;
     }
 
     function sendPrivateFeedback() {
@@ -2204,80 +1433,23 @@
         return;
       }
 
-      const subject =
-        "Ιδιωτική αξιολόγηση Speed Factory Moto";
-
+      const subject = "Ιδιωτική αξιολόγηση Speed Factory Moto";
       const body = [
         "Ιδιωτική αξιολόγηση πελάτη",
         "",
-        "Εμπειρία: " + selectedMood,
-        "Βαθμολογία: " + selectedRating + "/5 αστέρια",
+        `Εμπειρία: ${selectedMood}`,
+        `Βαθμολογία: ${selectedRating}/5 αστέρια`,
         "",
         "Η αξιολόγηση προήλθε από το ψηφιακό προφίλ της Speed Factory Moto."
       ].join("\n");
 
-      window.location.href =
-        "mailto:" +
-        COMPANY_EMAIL +
-        "?subject=" +
-        encodeURIComponent(subject) +
-        "&body=" +
-        encodeURIComponent(body);
-
-      window.setTimeout(() => {
-        document.getElementById("feedbackForm").style.display = "none";
-        document.getElementById("thankYou").style.display = "block";
-      }, 400);
-    }
-
-    function saveContact() {
-      const vcard = [
-        "BEGIN:VCARD",
-        "VERSION:3.0",
-        "FN:Speed Factory Moto - Χρήστος Νικολακόπουλος",
-        "N:Νικολακόπουλος;Χρήστος;;;",
-        "ORG:Speed Factory Moto",
-        "TITLE:Motorcycle Workshop",
-        "NICKNAME:Speed Factory,SpeedFactory,Χρήστος Νικολακόπουλος,Xristos Nikolakopoulos",
-        "TEL;TYPE=CELL:+306972776501",
-        "TEL;TYPE=WORK:+302610522613",
-        "EMAIL;TYPE=WORK:sfnikolakopoulos@gmail.com",
-        "ADR;TYPE=WORK:;;Δημοκρατίας 23;Οβριά;Αχαΐα;;Ελλάδα",
-        "URL:" + PROFILE_URL,
-        "URL:https://www.instagram.com/nikolakopoulos_xristos/",
-        "NOTE:Speed Factory Moto. Service, επισκευές, βελτιώσεις, κράνη, στολές, εξαρτήματα και αξεσουάρ μοτοσυκλέτας.",
-        "END:VCARD"
-      ].join("\r\n");
-
-      const blob = new Blob(
-        [vcard],
-        {
-          type: "text/vcard;charset=utf-8"
-        }
-      );
-
-      const downloadUrl = URL.createObjectURL(blob);
-      const link = document.createElement("a");
-
-      link.href = downloadUrl;
-      link.download = "Speed-Factory-Moto.vcf";
-
-      document.body.appendChild(link);
-      link.click();
-      link.remove();
-
-      window.setTimeout(() => {
-        URL.revokeObjectURL(downloadUrl);
-      }, 1000);
-
-      showToast("Η επαφή είναι έτοιμη για αποθήκευση.");
+      window.location.href = `mailto:${COMPANY_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     }
 
     async function shareProfile() {
       const shareData = {
         title: "Speed Factory Moto",
-        text:
-          "Speed Factory Moto – Χρήστος Νικολακόπουλος, Οβριά Πατρών.",
+        text: "Speed Factory Moto – Χρήστος Νικολακόπουλος, Οβριά Πατρών.",
         url: PROFILE_URL
       };
 
@@ -2290,250 +1462,29 @@
         await navigator.clipboard.writeText(PROFILE_URL);
         showToast("Το link αντιγράφηκε.");
       } catch (error) {
-        if (error && error.name === "AbortError") {
-          return;
-        }
-
-        showToast("Δεν ήταν δυνατή η κοινοποίηση.");
-      }
-    }
-
-    window.addEventListener(
-      "beforeinstallprompt",
-      (event) => {
-        event.preventDefault();
-        deferredInstallPrompt = event;
-      }
-    );
-
-    window.addEventListener(
-      "appinstalled",
-      () => {
-        deferredInstallPrompt = null;
-
-        showToast(
-          "Το Speed Factory αποθηκεύτηκε στο κινητό."
-        );
-      }
-    );
-
-    function isIOSDevice() {
-      return /iphone|ipad|ipod/i.test(
-        window.navigator.userAgent
-      );
-    }
-
-    function isAndroidDevice() {
-      return /android/i.test(
-        window.navigator.userAgent
-      );
-    }
-
-    function isStandaloneMode() {
-      return (
-        window.matchMedia("(display-mode: standalone)").matches ||
-        window.navigator.standalone === true
-      );
-    }
-
-    async function installProfile() {
-      if (isStandaloneMode()) {
-        showToast(
-          "Το Speed Factory είναι ήδη αποθηκευμένο στο κινητό."
-        );
-
-        return;
-      }
-
-      if (deferredInstallPrompt) {
-        deferredInstallPrompt.prompt();
-
-        try {
-          const choiceResult =
-            await deferredInstallPrompt.userChoice;
-
-          if (choiceResult.outcome === "accepted") {
-            showToast("Η εγκατάσταση ξεκίνησε.");
-          }
-        } catch (error) {
-          openInstallModal();
-        }
-
-        deferredInstallPrompt = null;
-        return;
-      }
-
-      openInstallModal();
-    }
-
-    function openInstallModal() {
-      const installSteps =
-        document.getElementById("installSteps");
-
-      const installIntro =
-        document.getElementById("installIntro");
-
-      if (isIOSDevice()) {
-        installIntro.textContent =
-          "Στο iPhone η αποθήκευση γίνεται μέσα από το Safari.";
-
-        installSteps.innerHTML = `
-          <div class="install-step">
-            <span class="install-step-number">1</span>
-
-            <span class="install-step-text">
-              Ανοίξτε τη σελίδα στο
-              <strong>Safari</strong>.
-            </span>
-          </div>
-
-          <div class="install-step">
-            <span class="install-step-number">2</span>
-
-            <span class="install-step-text">
-              Πατήστε το κουμπί
-              <strong>Κοινοποίηση</strong>.
-            </span>
-          </div>
-
-          <div class="install-step">
-            <span class="install-step-number">3</span>
-
-            <span class="install-step-text">
-              Επιλέξτε
-              <strong>Προσθήκη στην οθόνη Αφετηρίας</strong>.
-            </span>
-          </div>
-
-          <div class="install-step">
-            <span class="install-step-number">4</span>
-
-            <span class="install-step-text">
-              Πατήστε
-              <strong>Προσθήκη</strong>.
-            </span>
-          </div>
-        `;
-      } else if (isAndroidDevice()) {
-        installIntro.textContent =
-          "Ανοίξτε τη σελίδα μέσα από το Google Chrome.";
-
-        installSteps.innerHTML = `
-          <div class="install-step">
-            <span class="install-step-number">1</span>
-
-            <span class="install-step-text">
-              Ανοίξτε τη σελίδα στο
-              <strong>Google Chrome</strong>.
-            </span>
-          </div>
-
-          <div class="install-step">
-            <span class="install-step-number">2</span>
-
-            <span class="install-step-text">
-              Πατήστε τις
-              <strong>τρεις τελείες ⋮</strong>.
-            </span>
-          </div>
-
-          <div class="install-step">
-            <span class="install-step-number">3</span>
-
-            <span class="install-step-text">
-              Επιλέξτε
-              <strong>Εγκατάσταση εφαρμογής</strong>
-              ή
-              <strong>Προσθήκη στην αρχική οθόνη</strong>.
-            </span>
-          </div>
-        `;
-      } else {
-        installIntro.textContent =
-          "Αποθηκεύστε το Speed Factory στην αρχική οθόνη.";
-
-        installSteps.innerHTML = `
-          <div class="install-step">
-            <span class="install-step-number">1</span>
-
-            <span class="install-step-text">
-              Ανοίξτε το μενού του browser.
-            </span>
-          </div>
-
-          <div class="install-step">
-            <span class="install-step-number">2</span>
-
-            <span class="install-step-text">
-              Επιλέξτε
-              <strong>Εγκατάσταση εφαρμογής</strong>
-              ή
-              <strong>Προσθήκη στην αρχική οθόνη</strong>.
-            </span>
-          </div>
-        `;
-      }
-
-      document
-        .getElementById("installModal")
-        .classList.add("open");
-
-      document.body.style.overflow = "hidden";
-    }
-
-    function closeInstallModal() {
-      document
-        .getElementById("installModal")
-        .classList.remove("open");
-
-      document.body.style.overflow = "";
-    }
-
-    function installModalBackgroundClick(event) {
-      if (event.target.id === "installModal") {
-        closeInstallModal();
+        if (error && error.name !== "AbortError") showToast("Δεν ήταν δυνατή η κοινοποίηση.");
       }
     }
 
     function showToast(message) {
       const toast = document.getElementById("toast");
-
       toast.textContent = message;
       toast.classList.add("show");
-
-      window.clearTimeout(toastTimer);
-
-      toastTimer = window.setTimeout(() => {
-        toast.classList.remove("show");
-      }, 3200);
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove("show"), 3200);
     }
 
-    document.addEventListener(
-      "keydown",
-      (event) => {
-        if (event.key === "Escape") {
-          closeFeedback();
-          closeInstallModal();
-        }
-      }
-    );
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeAllModals();
+    });
 
     if ("serviceWorker" in navigator) {
-      window.addEventListener(
-        "load",
-        () => {
-          navigator.serviceWorker
-            .register("./service-worker.js")
-            .catch((error) => {
-              console.error(
-                "Service worker error:",
-                error
-              );
-            });
-        }
-      );
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./service-worker.js").catch((error) => {
+          console.error("Service worker error:", error);
+        });
+      });
     }
   </script>
-
 </body>
 </html>
