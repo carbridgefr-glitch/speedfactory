@@ -8,7 +8,7 @@
   <meta name="description" content="Speed Factory Moto στην Οβριά Πατρών. Service, επισκευές, βελτιώσεις και εξοπλισμός μοτοσυκλέτας.">
   <meta name="theme-color" content="#08090b">
 
-  <link rel="manifest" href="./manifest.webmanifest?v=10">
+  <link rel="manifest" href="./manifest.webmanifest?v=12">
   <link rel="apple-touch-icon" href="./icon-512.png">
   <link rel="icon" href="./icon-192.webp" type="image/webp">
 
@@ -17,12 +17,12 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Speed Factory">
 
-  <link rel="preload" as="image" href="./cover%20no%20backround.png" fetchpriority="high">
-  <link rel="preload" as="image" href="./logo%20git%20hub.png" fetchpriority="high">
+  <link rel="preload" as="image" href="./icon-512.png" fetchpriority="high">
+  <link rel="preload" as="image" href="./icon-192.webp" fetchpriority="high">
 
   <meta property="og:title" content="Speed Factory Moto">
-  <meta property="og:description" content="Το ψηφιακό προφίλ της Speed Factory Moto του Χρήστου Νικολακόπουλου.">
-  <meta property="og:image" content="https://carbridgefr-glitch.github.io/speedfactory/cover%20no%20backround.png">
+  <meta property="og:description" content="Χρήστος Νικολακόπουλος • Οβριά Πατρών">
+  <meta property="og:image" content="https://carbridgefr-glitch.github.io/speedfactory/icon-192.webp">
   <meta property="og:url" content="https://carbridgefr-glitch.github.io/speedfactory/">
   <meta property="og:type" content="website">
 
@@ -457,70 +457,261 @@
       font-weight: 950;
     }
 
+
     .categories {
       display: grid;
-      gap: 13px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 11px;
     }
 
     .category-card {
+      position: relative;
+      min-height: 164px;
       overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      padding: 14px;
       border: 1px solid var(--line);
-      border-radius: 21px;
-      background: linear-gradient(145deg, rgba(255, 255, 255, 0.065), rgba(255, 255, 255, 0.018));
+      border-radius: 20px;
+      color: #fff;
+      text-align: left;
+      background: #111318;
+      cursor: pointer;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
     }
 
-    .category-media {
-      height: 145px;
-      display: grid;
-      place-items: center;
-      background:
-        radial-gradient(circle at 28% 18%, rgba(237, 28, 36, 0.24), transparent 37%),
-        repeating-linear-gradient(135deg, #17191e 0 14px, #111318 14px 28px);
+    .category-card:last-child:nth-child(odd) {
+      grid-column: 1 / -1;
+      min-height: 145px;
     }
 
-    .category-placeholder {
+    .category-card > img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.25s ease;
+    }
+
+    .category-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.05),
+        rgba(0, 0, 0, 0.32) 48%,
+        rgba(0, 0, 0, 0.9) 100%
+      );
+    }
+
+    .category-card:active > img {
+      transform: scale(1.05);
+    }
+
+    .category-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+    }
+
+    .category-title-row {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 7px;
+    }
+
+    .category-card h3 {
+      margin: 0;
+      font-size: 0.97rem;
+      line-height: 1.12;
+      font-weight: 950;
+    }
+
+    .category-count {
+      flex: 0 0 auto;
+      padding: 5px 7px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 999px;
+      font-size: 0.62rem;
+      font-weight: 900;
+      background: rgba(0, 0, 0, 0.42);
+      backdrop-filter: blur(7px);
+    }
+
+    .category-card p {
+      margin: 6px 0 0;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.69rem;
+      line-height: 1.35;
+    }
+
+    .products-hint {
+      margin-top: 14px;
+      padding: 11px 12px;
+      border: 1px dashed rgba(255, 255, 255, 0.14);
+      border-radius: 15px;
+      color: var(--muted);
+      font-size: 0.74rem;
+      line-height: 1.45;
+      background: rgba(255, 255, 255, 0.025);
+    }
+
+    .gallery-grid {
       display: grid;
-      place-items: center;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 11px;
+      margin-top: 18px;
+    }
+
+    .product-card {
+      overflow: hidden;
+      padding: 0;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      color: #fff;
+      text-align: left;
+      background: rgba(255, 255, 255, 0.035);
+      cursor: pointer;
+    }
+
+    .product-image-wrap {
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      display: block;
+      background: #111318;
+    }
+
+    .product-image-wrap img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      transition: transform 0.22s ease;
+    }
+
+    .product-card:active img {
+      transform: scale(1.04);
+    }
+
+    .product-caption {
+      min-height: 47px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       gap: 8px;
-      color: rgba(255, 255, 255, 0.63);
-      font-size: 0.76rem;
-      font-weight: 800;
-      text-align: center;
+      padding: 9px 10px;
+      font-size: 0.73rem;
+      font-weight: 850;
     }
 
-    .category-placeholder strong {
+    .product-caption span:first-child {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .zoom-symbol {
       color: var(--red);
-      font-size: 2rem;
+      font-size: 1rem;
     }
 
-    .category-info {
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: max(14px, env(safe-area-inset-top)) 14px max(14px, env(safe-area-inset-bottom));
+      background: rgba(0, 0, 0, 0.95);
+    }
+
+    .lightbox.open {
+      display: flex;
+    }
+
+    .lightbox-content {
+      width: min(100%, 920px);
+      height: 100%;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 12px;
+    }
+
+    .lightbox-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 12px;
-      padding: 16px;
     }
 
-    .category-info h3 {
-      margin: 0;
-      font-size: 1rem;
-      font-weight: 950;
+    .lightbox-label strong {
+      display: block;
+      font-size: 0.92rem;
     }
 
-    .category-info p {
-      margin: 5px 0 0;
-      color: var(--muted);
-      font-size: 0.76rem;
+    .lightbox-label span {
+      display: block;
+      margin-top: 3px;
+      color: #9ea3ad;
+      font-size: 0.72rem;
     }
 
-    .soon-badge {
-      padding: 6px 9px;
-      border: 1px solid rgba(237, 28, 36, 0.26);
-      border-radius: 999px;
-      color: #ff9094;
-      font-size: 0.66rem;
-      font-weight: 950;
-      background: rgba(237, 28, 36, 0.14);
+    .lightbox-close,
+    .lightbox-nav {
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.11);
+      cursor: pointer;
+    }
+
+    .lightbox-close {
+      width: 43px;
+      height: 43px;
+      font-size: 1.3rem;
+    }
+
+    .lightbox-stage {
+      position: relative;
+      min-height: 0;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      border-radius: 20px;
+      background: #090a0d;
+    }
+
+    .lightbox-stage img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      user-select: none;
+    }
+
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      width: 44px;
+      height: 44px;
+      font-size: 1.4rem;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.56);
+      backdrop-filter: blur(8px);
+    }
+
+    .lightbox-prev { left: 9px; }
+    .lightbox-next { right: 9px; }
+
+    .lightbox-bottom {
+      color: #9ea3ad;
+      font-size: 0.72rem;
+      text-align: center;
     }
 
     .hours-table {
@@ -898,7 +1089,7 @@
     <header class="hero">
       <img
         class="hero-image"
-        src="./cover%20no%20backround.png"
+        src="./icon-512.png"
         alt="Speed Factory Moto"
         width="1200"
         height="700"
@@ -930,7 +1121,7 @@
       <div class="logo-ring">
         <div class="logo-inner">
           <img
-            src="./logo%20git%20hub.png"
+            src="./icon-192.webp"
             alt="Λογότυπο Speed Factory Moto"
             width="512"
             height="512"
@@ -1068,23 +1259,12 @@
 
       <section class="section" id="products">
         <div class="section-heading"><span class="heading-mark"></span><h2>Τα προϊόντα μας</h2></div>
-        <p class="section-subtitle">Οι φωτογραφίες και τα διαθέσιμα προϊόντα θα προστεθούν σταδιακά στις παρακάτω κατηγορίες.</p>
+        <p class="section-subtitle">Πατήστε μία κατηγορία για να δείτε αμέσως τα προϊόντα, χωρίς μεγάλη κύλιση στη σελίδα.</p>
 
-        <div class="categories">
-          <article class="category-card">
-            <div class="category-media"><div class="category-placeholder"><strong>○</strong>Χώρος φωτογραφιών</div></div>
-            <div class="category-info"><div><h3>Κράνη</h3><p>Μοντέλα και νέες παραλαβές</p></div><span class="soon-badge">ΣΥΝΤΟΜΑ</span></div>
-          </article>
+        <div class="categories" id="categoryGrid"></div>
 
-          <article class="category-card">
-            <div class="category-media"><div class="category-placeholder"><strong>◇</strong>Χώρος φωτογραφιών</div></div>
-            <div class="category-info"><div><h3>Στολές</h3><p>Ρουχισμός και εξοπλισμός αναβάτη</p></div><span class="soon-badge">ΣΥΝΤΟΜΑ</span></div>
-          </article>
-
-          <article class="category-card">
-            <div class="category-media"><div class="category-placeholder"><strong>⚙</strong>Χώρος φωτογραφιών</div></div>
-            <div class="category-info"><div><h3>Εξαρτήματα</h3><p>Αξεσουάρ και ανταλλακτικά moto</p></div><span class="soon-badge">ΣΥΝΤΟΜΑ</span></div>
-          </article>
+        <div class="products-hint">
+          Πατήστε μία κατηγορία και μετά μία φωτογραφία για να ανοίξει σε μεγαλύτερο μέγεθος.
         </div>
       </section>
 
@@ -1156,6 +1336,43 @@
       </svg>
       Εγκατάσταση προφίλ στο κινητό μου
     </button>
+  </div>
+
+
+  <!-- Κατηγορίες προϊόντων -->
+  <div class="modal" id="categoryModal" role="dialog" aria-modal="true" aria-labelledby="categoryModalTitle" onclick="closeOnBackground(event, 'categoryModal')">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div>
+          <h2 id="categoryModalTitle">Προϊόντα</h2>
+          <p id="categoryModalSubtitle"></p>
+        </div>
+        <button class="close-modal" type="button" aria-label="Κλείσιμο" onclick="closeModal('categoryModal')">×</button>
+      </div>
+
+      <div class="gallery-grid" id="galleryGrid"></div>
+    </div>
+  </div>
+
+  <!-- Μεγάλη προβολή φωτογραφίας -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle">
+    <div class="lightbox-content">
+      <div class="lightbox-top">
+        <div class="lightbox-label">
+          <strong id="lightboxTitle">Προϊόν</strong>
+          <span id="lightboxCounter"></span>
+        </div>
+        <button class="lightbox-close" type="button" aria-label="Κλείσιμο εικόνας" onclick="closeLightbox()">×</button>
+      </div>
+
+      <div class="lightbox-stage" id="lightboxStage">
+        <img id="lightboxImage" src="" alt="">
+        <button class="lightbox-nav lightbox-prev" type="button" aria-label="Προηγούμενη εικόνα" onclick="changeLightboxImage(-1)">‹</button>
+        <button class="lightbox-nav lightbox-next" type="button" aria-label="Επόμενη εικόνα" onclick="changeLightboxImage(1)">›</button>
+      </div>
+
+      <div class="lightbox-bottom">Σύρετε δεξιά ή αριστερά ή χρησιμοποιήστε τα βελάκια.</div>
+    </div>
   </div>
 
   <!-- iPhone: κύρια επιλογή επαφής και δεύτερη επιλογή εφαρμογής -->
@@ -1291,6 +1508,135 @@
     let selectedRating = 0;
     let selectedMood = "";
     let toastTimer;
+
+    const PRODUCT_CATEGORIES = [
+      {
+        id: "helmets",
+        title: "Κράνη",
+        description: "Κράνη για καθημερινή χρήση και μοτοσυκλέτα",
+        cover: "kranos.jpg",
+        images: [
+          "kranos.jpg", "kranos 2.jpg", "kranos 3.jpg", "kranos 4.jpg",
+          "kranos 5.jpg", "kranos 6.jpg", "kranos 7.jpg", "kranos 8.jpg",
+          "kranos 9.jpg", "kranos 10.jpg", "kranos11.jpg", "kranos12.jpg",
+          "kranos13.jpg", "kranos14.jpg", "kranos15.jpg", "kranos16.jpg",
+          "kranos17.jpg", "kranos18.jpg", "kranos19.jpg", "kranos20.jpg",
+          "kranos21.jpg", "kranos22.jpg", "kranos23.jpg", "kranos24.jpg"
+        ]
+      },
+      {
+        id: "oils",
+        title: "Λάδια & Συντήρηση",
+        description: "Λάδια για μοτοσυκλέτα και motocross",
+        cover: "ladia1.jpg",
+        images: ["ladia1.jpg", "ladia2.jpg", "ladia3.jpg", "ladia4.jpg", "ladia5.jpg"]
+      },
+      {
+        id: "motocross",
+        title: "Εξοπλισμός Motocross",
+        description: "Επιγονατίδες, μάσκα και στολές motocross",
+        cover: "epigonatides motocross.jpg",
+        images: [
+          "epigonatides motocross.jpg", "epigonatides motocross1.jpg",
+          "epigonatides motocross2.jpg", "epigonatides motocross3.jpg",
+          "maskes motocross.jpg", "stoli motocross.jpg", "stoli motocross1.jpg"
+        ]
+      },
+      {
+        id: "tires",
+        title: "Ελαστικά",
+        description: "Διαθέσιμα ελαστικά για τη μοτοσυκλέτα",
+        cover: "lastixa.jpg",
+        images: ["lastixa.jpg", "lastixa1.jpg", "lastixa2.jpg", "lastixa3.jpg"]
+      },
+      {
+        id: "jackets",
+        title: "Μπουφάν & Ρουχισμός",
+        description: "Μπουφάν και εξοπλισμός αναβάτη",
+        cover: "mpoufan.jpg",
+        images: ["mpoufan.jpg", "mpoufan1.jpg", "mpoufan2.jpg", "mpoufan3.jpg"]
+      }
+    ];
+
+    let activeCategory = null;
+    let activeImageIndex = 0;
+    let touchStartX = 0;
+
+    function imagePath(filename) {
+      return "./" + encodeURI(filename);
+    }
+
+    function renderCategories() {
+      document.getElementById("categoryGrid").innerHTML =
+        PRODUCT_CATEGORIES.map((category) => `
+          <button class="category-card" type="button" onclick="openCategory('${category.id}')">
+            <img src="${imagePath(category.cover)}" alt="${category.title}" loading="lazy" decoding="async">
+            <span class="category-content">
+              <span class="category-title-row">
+                <h3>${category.title}</h3>
+                <span class="category-count">${category.images.length} φωτογραφίες</span>
+              </span>
+              <p>${category.description}</p>
+            </span>
+          </button>
+        `).join("");
+    }
+
+    function openCategory(categoryId) {
+      activeCategory = PRODUCT_CATEGORIES.find((category) => category.id === categoryId);
+      if (!activeCategory) return;
+
+      document.getElementById("categoryModalTitle").textContent = activeCategory.title;
+      document.getElementById("categoryModalSubtitle").textContent =
+        `${activeCategory.description} • ${activeCategory.images.length} φωτογραφίες`;
+
+      document.getElementById("galleryGrid").innerHTML =
+        activeCategory.images.map((filename, index) => `
+          <button class="product-card" type="button" onclick="openLightbox(${index})">
+            <span class="product-image-wrap">
+              <img src="${imagePath(filename)}" alt="${activeCategory.title} ${index + 1}" loading="lazy" decoding="async">
+            </span>
+            <span class="product-caption">
+              <span>${activeCategory.title} ${index + 1}</span>
+              <span class="zoom-symbol">⌕</span>
+            </span>
+          </button>
+        `).join("");
+
+      openModal("categoryModal");
+    }
+
+    function openLightbox(index) {
+      if (!activeCategory) return;
+      activeImageIndex = index;
+      updateLightbox();
+      document.getElementById("lightbox").classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+
+    function updateLightbox() {
+      const filename = activeCategory.images[activeImageIndex];
+      const image = document.getElementById("lightboxImage");
+      image.src = imagePath(filename);
+      image.alt = `${activeCategory.title} ${activeImageIndex + 1}`;
+      document.getElementById("lightboxTitle").textContent = activeCategory.title;
+      document.getElementById("lightboxCounter").textContent =
+        `${activeImageIndex + 1} από ${activeCategory.images.length}`;
+    }
+
+    function changeLightboxImage(direction) {
+      if (!activeCategory) return;
+      const total = activeCategory.images.length;
+      activeImageIndex = (activeImageIndex + direction + total) % total;
+      updateLightbox();
+    }
+
+    function closeLightbox() {
+      document.getElementById("lightbox").classList.remove("open");
+      if (!document.querySelector(".modal.open")) {
+        document.body.style.overflow = "";
+      }
+    }
 
     function isIOS() {
       return /iphone|ipad|ipod/i.test(navigator.userAgent) ||
@@ -1477,16 +1823,39 @@
     }
 
     document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") closeAllModals();
+      const lightboxOpen = document.getElementById("lightbox").classList.contains("open");
+
+      if (event.key === "Escape") {
+        if (lightboxOpen) {
+          closeLightbox();
+        } else {
+          closeAllModals();
+        }
+      }
+
+      if (lightboxOpen && event.key === "ArrowLeft") changeLightboxImage(-1);
+      if (lightboxOpen && event.key === "ArrowRight") changeLightboxImage(1);
     });
+
+    document.getElementById("lightboxStage").addEventListener("touchstart", (event) => {
+      touchStartX = event.changedTouches[0].screenX;
+    }, { passive: true });
+
+    document.getElementById("lightboxStage").addEventListener("touchend", (event) => {
+      const difference = event.changedTouches[0].screenX - touchStartX;
+      if (Math.abs(difference) >= 45) {
+        changeLightboxImage(difference > 0 ? -1 : 1);
+      }
+    }, { passive: true });
 
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./service-worker.js?v=10").catch((error) => {
+        navigator.serviceWorker.register("./service-worker.js?v=12").catch((error) => {
           console.error("Service worker error:", error);
         });
       });
     }
+    renderCategories();
   </script>
 </body>
 </html>
