@@ -578,6 +578,244 @@
     }
 
 
+    .nfc-offer-card {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      min-height: 190px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 14px;
+      padding: 21px 18px;
+      border: 1px solid rgba(255, 214, 92, 0.48);
+      border-radius: 24px;
+      color: #ffffff;
+      text-align: left;
+      background:
+        radial-gradient(circle at 88% 18%, rgba(255, 222, 92, 0.33), transparent 28%),
+        linear-gradient(135deg, #ed1c24 0%, #8d070c 52%, #17090b 100%);
+      box-shadow:
+        0 18px 48px rgba(0, 0, 0, 0.38),
+        0 10px 34px rgba(237, 28, 36, 0.25);
+      cursor: pointer;
+      isolation: isolate;
+    }
+
+    .nfc-offer-card::before {
+      content: "";
+      position: absolute;
+      inset: -40% -15%;
+      z-index: -1;
+      opacity: 0.22;
+      transform: rotate(-11deg);
+      background:
+        repeating-linear-gradient(
+          90deg,
+          transparent 0 22px,
+          rgba(255, 255, 255, 0.28) 23px 25px,
+          transparent 26px 48px
+        );
+    }
+
+    .nfc-offer-card::after {
+      content: "";
+      position: absolute;
+      right: -68px;
+      bottom: -78px;
+      width: 205px;
+      height: 205px;
+      z-index: -1;
+      border: 22px solid rgba(255, 216, 87, 0.16);
+      border-radius: 50%;
+    }
+
+    .offer-copy {
+      min-width: 0;
+    }
+
+    .offer-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 9px;
+      padding: 6px 9px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 999px;
+      color: #fff6c5;
+      font-size: 0.64rem;
+      font-weight: 950;
+      letter-spacing: 0.07em;
+      background: rgba(0, 0, 0, 0.24);
+      backdrop-filter: blur(7px);
+    }
+
+    .offer-eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #ffe76a;
+      box-shadow: 0 0 12px #ffe76a;
+    }
+
+    .offer-copy h2 {
+      margin: 0;
+      font-size: clamp(1.35rem, 6vw, 1.95rem);
+      line-height: 1.02;
+      font-weight: 1000;
+      letter-spacing: -0.045em;
+      text-transform: uppercase;
+    }
+
+    .offer-copy h2 span {
+      display: block;
+      margin-top: 5px;
+      color: #ffe46d;
+    }
+
+    .offer-copy p {
+      max-width: 430px;
+      margin: 11px 0 0;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.81rem;
+      line-height: 1.5;
+    }
+
+    .offer-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 14px;
+      padding: 9px 12px;
+      border-radius: 13px;
+      color: #171008;
+      font-size: 0.75rem;
+      font-weight: 950;
+      background: linear-gradient(135deg, #fff4a5, #ffc928);
+      box-shadow: 0 9px 24px rgba(0, 0, 0, 0.25);
+    }
+
+    .offer-discount {
+      width: 100px;
+      height: 100px;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      padding: 8px;
+      border: 3px solid rgba(255, 255, 255, 0.92);
+      border-radius: 50%;
+      color: #ffffff;
+      text-align: center;
+      background:
+        radial-gradient(circle at 35% 25%, #ff575e, #b10910 72%);
+      box-shadow:
+        0 14px 32px rgba(0, 0, 0, 0.34),
+        inset 0 0 0 5px rgba(255, 255, 255, 0.11);
+      transform: rotate(5deg);
+    }
+
+    .offer-discount strong {
+      display: block;
+      font-size: 2rem;
+      line-height: 0.9;
+      font-weight: 1000;
+      letter-spacing: -0.06em;
+    }
+
+    .offer-discount span {
+      display: block;
+      margin-top: 4px;
+      font-size: 0.58rem;
+      line-height: 1.12;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    .category-offer-tag {
+      display: inline-flex;
+      align-items: center;
+      margin-top: 8px;
+      padding: 5px 8px;
+      border-radius: 999px;
+      color: #191104;
+      font-size: 0.63rem;
+      font-weight: 950;
+      background: linear-gradient(135deg, #fff2a2, #ffc72e);
+    }
+
+    .product-image-wrap {
+      position: relative;
+    }
+
+    .discount-badge {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      z-index: 2;
+      min-width: 53px;
+      padding: 7px 8px;
+      border: 2px solid rgba(255, 255, 255, 0.92);
+      border-radius: 12px;
+      color: #ffffff;
+      font-size: 0.76rem;
+      font-weight: 1000;
+      line-height: 1;
+      text-align: center;
+      background: linear-gradient(135deg, #ff252d, #9f050a);
+      box-shadow: 0 7px 19px rgba(0, 0, 0, 0.34);
+      transform: rotate(-4deg);
+    }
+
+    .offer-caption {
+      color: #ffe36a;
+      font-size: 0.66rem;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .lightbox-offer-badge {
+      position: absolute;
+      top: 13px;
+      left: 13px;
+      z-index: 4;
+      display: none;
+      padding: 9px 12px;
+      border: 2px solid rgba(255, 255, 255, 0.93);
+      border-radius: 14px;
+      color: #ffffff;
+      font-size: 0.78rem;
+      font-weight: 1000;
+      background: linear-gradient(135deg, #ff252d, #96050a);
+      box-shadow: 0 10px 27px rgba(0, 0, 0, 0.42);
+      transform: rotate(-3deg);
+    }
+
+    .lightbox-offer-badge.show {
+      display: block;
+    }
+
+    @media (max-width: 430px) {
+      .nfc-offer-card {
+        min-height: 207px;
+        grid-template-columns: 1fr 86px;
+        padding: 19px 15px;
+      }
+
+      .offer-discount {
+        width: 82px;
+        height: 82px;
+      }
+
+      .offer-discount strong {
+        font-size: 1.63rem;
+      }
+
+      .offer-copy p {
+        font-size: 0.76rem;
+      }
+    }
+
+
 
     /* Σύντομη παρουσίαση καταστήματος */
     .moments-card {
@@ -1464,6 +1702,44 @@
         </button>
       </section>
 
+
+      <section class="section" id="keychain-offer">
+        <button
+          class="nfc-offer-card"
+          type="button"
+          onclick="openMotocrossOffer()"
+          aria-label="Δείτε την προσφορά 25% στις στολές Motocross"
+        >
+          <span class="offer-copy">
+            <span class="offer-eyebrow">
+              <span class="offer-eyebrow-dot"></span>
+              ΑΠΟΚΛΕΙΣΤΙΚΑ ΜΕ ΤΟ NFC ΜΠΡΕΛΟΚ
+            </span>
+
+            <h2>
+              Προσφορά για εσάς
+              <span>Στολές Motocross −25%</span>
+            </h2>
+
+            <p>
+              Δείξτε το NFC μπρελόκ σας στο κατάστημα και κερδίστε
+              25% έκπτωση στις επιλεγμένες στολές Motocross.
+            </p>
+
+            <span class="offer-action">
+              ΠΑΤΗΣΤΕ ΕΔΩ • ΔΕΙΤΕ ΤΙΣ ΣΤΟΛΕΣ
+            </span>
+          </span>
+
+          <span class="offer-discount" aria-hidden="true">
+            <span>
+              <strong>−25%</strong>
+              ΜΕ ΤΟ ΜΠΡΕΛΟΚ
+            </span>
+          </span>
+        </button>
+      </section>
+
       <section class="section" id="products">
         <div class="section-heading"><span class="heading-mark"></span><h2>Τα προϊόντα μας</h2></div>
         <p class="section-subtitle">Πατήστε μία κατηγορία για να δείτε αμέσως τα προϊόντα, χωρίς μεγάλη κύλιση στη σελίδα.</p>
@@ -1597,6 +1873,7 @@
 
       <div class="lightbox-stage" id="lightboxStage">
         <img id="lightboxImage" src="" alt="">
+        <div class="lightbox-offer-badge" id="lightboxOfferBadge">−25% ΜΕ ΤΟ NFC ΜΠΡΕΛΟΚ</div>
         <button class="lightbox-nav lightbox-prev" type="button" aria-label="Προηγούμενη εικόνα" onclick="changeLightboxImage(-1)">‹</button>
         <button class="lightbox-nav lightbox-next" type="button" aria-label="Επόμενη εικόνα" onclick="changeLightboxImage(1)">›</button>
       </div>
@@ -1782,15 +2059,110 @@
       {
         id: "jackets",
         title: "Μπουφάν & Ρουχισμός",
-        description: "Μπουφάν και εξοπλισμός αναβάτη",
+        description: "Μπουφάν, στολές και εξοπλισμός αναβάτη",
         cover: "mpoufan.jpg",
-        images: ["mpoufan.jpg", "mpoufan1.jpg", "mpoufan2.jpg", "mpoufan3.jpg"]
+        images: [
+          "mpoufan.jpg", "mpoufan1.jpg", "mpoufan2.jpg", "mpoufan3.jpg",
+          "stoli 1.jpg", "stoli 2.jpg", "stoli 3.jpg", "stoli 4.jpg",
+          "stoli 5.jpg", "stoli 6.jpg", "stoli 7.jpg", "stoli 8.jpg",
+          "stoli 9.jpg"
+        ]
+      },
+      {
+        id: "glasses",
+        title: "Γυαλιά Αναβάτη",
+        description: "Γυαλιά για μοτοσυκλέτα και καθημερινή χρήση",
+        cover: "proion25.jpg",
+        images: [
+          "proion25.jpg", "proion26.jpg", "proion27.jpg",
+          "proion28.jpg", "proion29.jpg", "proion30.jpg",
+          "proion31.jpg", "proion32.jpg", "proion33.jpg"
+        ]
+      },
+      {
+        id: "motorcycle-cases",
+        title: "Βαλίτσες Μοτοσυκλέτας",
+        description: "Βαλίτσες και λύσεις αποθήκευσης για τη μηχανή",
+        cover: "proion11.jpg",
+        images: [
+          "proion11.jpg", "proion12.jpg", "proion13.jpg", "proion14.jpg",
+          "proion15.jpg", "proion16.jpg", "proion17.jpg", "proion18.jpg",
+          "proion19.jpg", "proion20.jpg", "proion21.jpg", "proion22.jpg",
+          "proion23.jpg", "proion24.jpg"
+        ]
+      },
+      {
+        id: "accessories",
+        title: "Αξεσουάρ Μοτοσυκλέτας",
+        description: "Διάφορα χρήσιμα αξεσουάρ για μηχανή και αναβάτη",
+        cover: "proion.jpg",
+        images: [
+          "kaltses 1.jpg", "kaltses.jpg",
+          "proin3.jpg", "proin4.jpg", "proin5.jpg", "proin7.jpg",
+          "proion.jpg", "proion1.jpg", "proion2.jpg", "proion3.jpg",
+          "proion4.jpg", "proion5.jpg", "proion6.jpg",
+          "proion8.jpg", "proion9.jpg", "proion10.jpg"
+        ]
       }
     ];
 
     let activeCategory = null;
     let activeImageIndex = 0;
     let touchStartX = 0;
+
+
+    const MOTOCROSS_OFFER = {
+      id: "motocross-offer",
+      title: "Προσφορά Motocross −25%",
+      description: "Δείξτε το NFC μπρελόκ στο κατάστημα για 25% έκπτωση στις επιλεγμένες στολές Motocross",
+      cover: "stoli 1.jpg",
+      images: [
+        "stoli 1.jpg", "stoli 2.jpg", "stoli 3.jpg",
+        "stoli 4.jpg", "stoli 5.jpg", "stoli 6.jpg",
+        "stoli 7.jpg", "stoli 8.jpg", "stoli 9.jpg"
+      ]
+    };
+
+    function isMotocrossOfferSuit(filename) {
+      return /^stoli [1-9]\.jpg$/i.test(filename);
+    }
+
+    function openMotocrossOffer() {
+      activeCategory = MOTOCROSS_OFFER;
+      renderActiveCategoryGallery();
+    }
+
+    function renderActiveCategoryGallery() {
+      if (!activeCategory) return;
+
+      document.getElementById("categoryModalTitle").textContent =
+        activeCategory.title;
+
+      document.getElementById("categoryModalSubtitle").textContent =
+        `${activeCategory.description} • ${activeCategory.images.length} φωτογραφίες`;
+
+      document.getElementById("galleryGrid").innerHTML =
+        activeCategory.images.map((filename, index) => {
+          const isDiscountSuit = isMotocrossOfferSuit(filename);
+
+          return `
+            <button class="product-card" type="button" onclick="openLightbox(${index})">
+              <span class="product-image-wrap">
+                ${isDiscountSuit ? '<span class="discount-badge">−25%</span>' : ''}
+                <img src="${imagePath(filename)}" alt="${activeCategory.title} ${index + 1}" loading="lazy" decoding="async">
+              </span>
+              <span class="product-caption">
+                <span>${activeCategory.title} ${index + 1}</span>
+                ${isDiscountSuit
+                  ? '<span class="offer-caption">ΜΕ ΤΟ ΜΠΡΕΛΟΚ</span>'
+                  : '<span class="zoom-symbol">⌕</span>'}
+              </span>
+            </button>
+          `;
+        }).join("");
+
+      openModal("categoryModal");
+    }
 
     function imagePath(filename) {
       return "./" + encodeURI(filename);
@@ -1807,6 +2179,9 @@
                 <span class="category-count">${category.images.length} φωτογραφίες</span>
               </span>
               <p>${category.description}</p>
+              ${category.id === "jackets"
+                ? '<span class="category-offer-tag">−25% στις στολές Motocross με το μπρελόκ</span>'
+                : ''}
             </span>
           </button>
         `).join("");
@@ -1815,25 +2190,7 @@
     function openCategory(categoryId) {
       activeCategory = PRODUCT_CATEGORIES.find((category) => category.id === categoryId);
       if (!activeCategory) return;
-
-      document.getElementById("categoryModalTitle").textContent = activeCategory.title;
-      document.getElementById("categoryModalSubtitle").textContent =
-        `${activeCategory.description} • ${activeCategory.images.length} φωτογραφίες`;
-
-      document.getElementById("galleryGrid").innerHTML =
-        activeCategory.images.map((filename, index) => `
-          <button class="product-card" type="button" onclick="openLightbox(${index})">
-            <span class="product-image-wrap">
-              <img src="${imagePath(filename)}" alt="${activeCategory.title} ${index + 1}" loading="lazy" decoding="async">
-            </span>
-            <span class="product-caption">
-              <span>${activeCategory.title} ${index + 1}</span>
-              <span class="zoom-symbol">⌕</span>
-            </span>
-          </button>
-        `).join("");
-
-      openModal("categoryModal");
+      renderActiveCategoryGallery();
     }
 
     function openLightbox(index) {
@@ -1852,6 +2209,10 @@
       document.getElementById("lightboxTitle").textContent = activeCategory.title;
       document.getElementById("lightboxCounter").textContent =
         `${activeImageIndex + 1} από ${activeCategory.images.length}`;
+
+      document
+        .getElementById("lightboxOfferBadge")
+        .classList.toggle("show", isMotocrossOfferSuit(filename));
     }
 
     function changeLightboxImage(direction) {
